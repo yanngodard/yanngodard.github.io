@@ -1,0 +1,921 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #333;
+    --background-color: #ffffff;
+    /* White background as requested */
+    --hero-bg: #00CC99;
+    /* Grey background as requested */
+    --hero-text: #ffffff;
+    --card-bg: #ffffff;
+    --spacing-unit: 1rem;
+    --placeholder-color: #E4E4E4;
+    /* Light grey for placeholder */
+}
+
+/* Column Content Styling */
+.column p {
+    margin-bottom: 0.2rem;
+    /* Adjusted spacing between paragraphs */
+}
+
+.column ul,
+.column ol {
+    list-style: none;
+    /* Remove default bullets */
+    margin-left: 0;
+    padding-left: 0;
+    margin-bottom: 2rem;
+}
+
+.column li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    /* Space for the arrow */
+    position: relative;
+}
+
+.column li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    top: 0;
+    /* Align with top line */
+    font-weight: 400;
+    /* Adjust weight if needed */
+    color: var(--primary-color);
+}
+
+/* Placeholder Block */
+.placeholder-block {
+    background-color: var(--placeholder-color);
+    width: 100%;
+    height: auto;
+    /* Allow height to adapt to content/image */
+    min-height: 200px;
+    /* Keep minimum height */
+    border-radius: 16px;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    /* Light shadow */
+    overflow: hidden;
+    /* Ensure content stays within rounded corners */
+}
+
+.placeholder-block img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Quote Styling */
+.quote-container {
+    text-align: center;
+    font-style: italic;
+    font-size: 1.1rem;
+    margin: 3rem 0;
+    /* Add generous spacing */
+    color: var(--primary-color);
+}
+
+.quote-container p {
+    margin-bottom: 1rem;
+}
+
+/* List Styling Enhancements */
+.column ol {
+    margin-left: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.column ol li {
+    margin-bottom: 0.5rem;
+}
+
+.column ol li strong {
+    font-weight: 700;
+}
+
+li {
+    list-style-type: none;
+}
+
+li:before {
+    content: "→ ";
+    /* caractère UTF-8 */
+
+}
+
+/* Nested lists */
+.column ul ul {
+    margin-top: 0.5rem;
+    list-style-type: circle;
+}
+
+/* Stats Grid Styling */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+}
+
+.stat-item {
+    text-align: left;
+}
+
+.stat-number {
+    font-size: 3.5rem;
+    font-weight: 300;
+    /* Regular weight as per image usually implies thin/regular for big display numbers */
+    color: #111;
+    /* Darker black */
+    line-height: 1.2;
+    margin-bottom: 0.2rem;
+}
+
+.stat-label {
+    font-size: 1rem;
+    font-weight: 300;
+    /* Use 600 or 700 for 'Bold' look */
+    color: var(--primary-color);
+
+}
+
+.stat-sub {
+    font-size: 1rem;
+    color: #888;
+    /* Grey color */
+    font-weight: 300;
+}
+
+/* Responsive adjustment for stats */
+@media (max-width: 600px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    padding-bottom: 200px;
+    /* Requested bottom spacing */
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Hero Section */
+/* No specific styles on the wrapper if we want margin on the block itself,
+   but user said "Dans le hero bloc fond gris margin 50px border radius 16px"
+   I will apply this to a container inside or the hero itself.
+   Let's apply to .hero-content container or the .hero div directly within padding constraints.
+   Actually, standard "hero block" usually implies the visible box. */
+.hero {
+    padding: 0 2rem;
+
+}
+
+/* The actual visual hero block */
+.hero-content {
+    background-color: var(--hero-bg);
+    background-image: none;
+    background-size: auto;
+    /* Keep original size */
+    background-position: right center;
+    /* Position to the right */
+    background-repeat: no-repeat;
+    color: var(--hero-text);
+    text-align: left;
+    border-radius: 16px;
+    margin: 50px auto;
+    /* 50px margin as requested */
+    margin-bottom: 0px;
+    max-width: calc(1100px - 4rem);
+    /* Ensure it fits nicely if main container is used, or just auto */
+    padding-top: 100px;
+    padding-bottom: 60px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    /* Light shadow */
+    overflow: hidden;
+    /* Ensure content stays within rounded corners */
+}
+
+.hero-content.poulpeo-theme {
+    background-color: #0179FE;
+
+}
+
+/* Brand Title (first h1) */
+.hero-content h1:first-of-type {
+    font-size: 4rem;
+    /* Much larger as requested */
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    max-width: none;
+    /* Override default constraint */
+}
+
+/* Logo Image */
+.hero-content h1:first-of-type img {
+    border-radius: 16px;
+    height: 60px;
+    /* Adjust height if necessary to match text or keep original if suitable */
+    width: auto;
+    box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.1);
+    /* Soft shadow */
+}
+
+/* Tagline (second h1) */
+.hero-content h1:nth-of-type(2) {
+    font-family: 'Roboto', sans-serif;
+    font-size: 38px;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    max-width: 530px;
+}
+
+.hero h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 38px;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    max-width: 530px
+}
+
+.hero p {
+    font-size: 1rem;
+    /* Adjust if needed */
+    max-width: 530px
+}
+
+blockquote {
+    margin: 2rem 0;
+    padding-left: 1.25rem;
+    border-left: 3px solid #e5e5e5;
+    font-style: italic;
+    color: #6d6d6d;
+    font-size: 1.1rem;
+    max-width: 60ch;
+}
+
+
+
+/* Main Content Layout */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0rem;
+}
+
+@media (min-width: 1000px) {
+    .main-content {
+        grid-template-columns: 35fr 65fr;
+        gap: 2rem;
+    }
+
+    .column:not(.column-left) {
+        padding: 0 2rem;
+    }
+
+    .column-left {
+        position: sticky;
+        top: 2rem;
+        /* Stick 2rem from top */
+        align-self: start;
+        /* Prevent grid item stretching so sticky works */
+        height: auto;
+    }
+
+    .hero-content {
+        background-color: var(--hero-bg);
+        background-image: url('assets/mareduc-header.png');
+        background-size: auto;
+        /* Keep original size */
+        background-position: right center;
+        /* Position to the right */
+        background-repeat: no-repeat;
+        color: var(--hero-text);
+        text-align: left;
+        border-radius: 16px;
+        margin: 50px auto;
+        /* 50px margin as requested */
+        margin-bottom: 0px;
+        max-width: calc(1100px - 4rem);
+        padding-top: 140px;
+        padding-bottom: 60px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        /* Light shadow */
+        overflow: hidden;
+        /* Ensure content stays within rounded corners */
+    }
+
+    .hero-content.poulpeo-theme {
+        background-color: #0179FE;
+        background-image: url('assets/poulpeo-header.png');
+    }
+
+    /* Brand Title (first h1) */
+    .hero-content h1:first-of-type {
+        font-size: 4rem;
+        /* Much larger as requested */
+        font-weight: 300;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        max-width: none;
+        /* Override default constraint */
+    }
+
+    /* Logo Image */
+    .hero-content h1:first-of-type img {
+        border-radius: 16px;
+        height: 60px;
+        /* Adjust height if necessary to match text or keep original if suitable */
+        width: auto;
+    }
+
+    /* Tagline (second h1) */
+    .hero-content h1:nth-of-type(2) {
+        font-family: 'Roboto', sans-serif;
+        font-size: 38px;
+        font-weight: 300;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+        max-width: 460px;
+    }
+
+    .hero h1 {
+        font-family: 'Roboto', sans-serif;
+        font-size: 38px;
+        font-weight: 300;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+        max-width: 460px
+    }
+
+    .hero p {
+        max-width: 420px
+    }
+
+}
+
+/* Column Styling */
+
+/* Right column (assuming "Colonne 2" keeps card style or similar) */
+
+
+/* Left Column Specifics */
+.column-left {
+    padding: 0 0;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    margin-top: 4rem;
+    color: var(--primary-color);
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 38px;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.tag {
+    background-color: #F5F5F5;
+    /* Light grey */
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+/* Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Experience List Staggered Animation */
+.experience-list .accordion-item.reveal:nth-of-type(1) {
+    transition-delay: 0.1s;
+}
+
+.experience-list .accordion-item.reveal:nth-of-type(2) {
+    transition-delay: 0.2s;
+}
+
+.experience-list .accordion-item.reveal:nth-of-type(3) {
+    transition-delay: 0.3s;
+}
+
+.experience-list .accordion-item.reveal:nth-of-type(4) {
+    transition-delay: 0.4s;
+}
+
+.experience-list .accordion-item.reveal:nth-of-type(5) {
+    transition-delay: 0.5s;
+}
+
+/* Distinction Link Override */
+a.accordion-item.distinction-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Logo Strip Styling */
+.logo-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 2rem;
+    opacity: 1;
+}
+
+.logo-strip img {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(100%);
+    /* Ensure uniform look if needed, though assets might be b&w */
+}
+
+/* Stagger delays if needed (utility classes) */
+.delay-100 {
+    transition-delay: 0.1s;
+}
+
+.delay-200 {
+    transition-delay: 0.2s;
+}
+
+.delay-300 {
+    transition-delay: 0.3s;
+}
+
+/* Staggered Tag Animation */
+.tags-reveal-group .tag {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-out;
+    display: inline-block;
+    /* Required for transform to work on span */
+}
+
+.tags-reveal-group .tag.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Page Transition Animation */
+@keyframes pageSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.page-enter-active {
+    animation: pageSlideIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Sticky Close Button */
+.close-btn {
+    position: fixed;
+    top: auto;
+    bottom: 3rem;
+    left: 50%;
+    right: auto;
+    /* Bottom Center */
+    transform: translateX(-50%);
+    background-color: rgb(6, 6, 6);
+    color: var(--primary-color);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    /* Always circle */
+    width: 60px;
+    /* Increased by 50% (was 60px) */
+    height: 60px;
+    padding: 0;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-btn .text-x {
+    display: block;
+    /* Always show X */
+    font-size: 2.25rem;
+    font-weight: 300;
+    color: #ffffff;
+    /* Increase icon size proportionally */
+    line-height: 1;
+}
+
+.close-btn .text-fermer {
+    display: none;
+    /* Hide text */
+}
+
+.close-btn:hover {
+    transform: translateX(-50%) scale(1.1);
+    /* Maintain centering on hover */
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .close-btn {
+        width: 70px;
+        /* Slightly smaller for mobile but larger than before */
+        height: 70px;
+        right: 1.5rem;
+        bottom: 1.5rem;
+    }
+}
+
+/* Sticky Branding Link */
+.sticky-home-link {
+    /* Higher than close button (1000) */
+    text-decoration: none;
+
+    /* H2 Style Reference */
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 300;
+    color: var(--primary-color);
+    letter-spacing: normal;
+
+    /* Reset button styles */
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    mix-blend-mode: normal;
+}
+
+.sticky-home-link:hover {
+    text-decoration: none;
+    opacity: 0.7;
+    transform: none;
+    box-shadow: none;
+    transition: opacity 0.3s ease;
+}
+
+/* =========================================
+   HOME PAGE REDESIGN ( STYLE)
+   ========================================= */
+
+body.index-body {
+    background-color: #ffffff;
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.index-container {
+    max-width: calc(1100px - 4rem);
+    margin: 0 auto;
+}
+
+/* --- Hero: Split --- */
+.hero-split {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4rem;
+    padding-top: 1rem;
+}
+
+@media (min-width: 1024px) {
+    .hero-split {
+        flex-direction: row;
+        align-items: flex-start;
+        padding-top: 5rem;
+    }
+}
+
+.index-title {
+    font-size: 120px;
+    line-height: 1;
+    font-weight: 400;
+    /* Regular weight */
+    margin-left: 0%;
+    color: #000;
+}
+
+.profile-circle {
+    width: 210px;
+    height: 210px;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    background-image: url('assets/perso.png');
+    /* Placeholder */
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    margin-bottom: 0rem;
+}
+
+@media (min-width: 1024px) {
+    .profile-circle {
+        margin-bottom: 0;
+    }
+}
+
+/* --- Centered Intro --- */
+.intro-centered {
+
+    margin-bottom: 6rem;
+    text-align: left;
+    margin-left: 30%;
+}
+
+.intro-text {
+    max-width: 600px;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.4;
+    color: #000;
+    margin-bottom: 10px;
+    /* Stark black */
+}
+
+/* --- Experience List --- */
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30%;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #f0f0f0;
+    /* Very light subtle border */
+}
+
+/* Eiko Header Style */
+.accordion-header.index-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2rem 0;
+    cursor: pointer;
+    grid-template-columns: none;
+    transition: opacity 0.3s;
+}
+
+.accordion-header.index-header:hover {
+    opacity: 0.7;
+}
+
+.index-job-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0rem;
+}
+
+.index-role {
+    font-size: 1.45rem;
+    font-weight: 400;
+    color: #000;
+    margin: 0;
+    text-transform: none;
+    line-height: 1.2;
+}
+
+.index-company {
+    font-size: 1rem;
+    color: #666;
+    font-weight: 400;
+}
+
+.index-meta {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.index-date {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.index-icon-wrapper {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #e0e0e0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.index-icon {
+    font-size: 1.25rem;
+    color: #000;
+    line-height: 1;
+}
+
+/* Active State */
+.accordion-item.active .index-icon {
+    transform: rotate(45deg);
+    color: #fff;
+}
+
+.accordion-item.active .index-icon-wrapper {
+    border-color: #000;
+    background-color: #000;
+}
+
+/* Content */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+}
+
+.index-inner {
+    padding: 0 0 3rem 0;
+    max-width: 700px;
+}
+
+.index-inner p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.index-tags {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 2rem;
+    display: flex;
+    gap: 0.2rem 1rem;
+    flex-wrap: wrap;
+}
+
+.index-tags li {
+    font-size: 0.8rem;
+    color: #666;
+    position: relative;
+    padding-left: 0.8rem;
+}
+
+.index-tags li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #999;
+}
+
+.index-project-btn {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    border: 1px solid #e0e0e0;
+    background: #ffffff;
+    color: #000000;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.9rem;
+    border-radius: 50px;
+    /* Pill shape */
+    transition: background-color 0.3s ease;
+    margin-right: 1rem;
+    max-height: 38px;
+}
+
+.index-project-btn:hover {
+    background: #ffffff;
+}
+
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+
+.project-links img {
+    border-radius: 8px;
+    height: 60px;
+    /* Adjust height if necessary to match text or keep original if suitable */
+    width: auto;
+    /* Soft shadow */
+}
+
+
+@media (max-width: 1024px) {
+    .accordion-header.index-header {
+        position: relative;
+        /* Context for absolute date */
+        padding-top: 2.5rem;
+        /* Space for the date */
+        align-items: flex-start;
+    }
+
+    .index-meta {
+        /* Reset any column direction that might interfere, though absolute child escapes */
+        flex-direction: row;
+        align-items: flex-start;
+        /* Ensure meta doesn't take full width forcing icon down if not needed */
+        width: auto;
+    }
+
+    .index-date {
+        position: absolute;
+        top: 0;
+        /* Align to top */
+        left: 0;
+        margin-top: 2rem;
+        /* Matches existing padding/margin logic if needed, or just 0 inside the padded container */
+        margin-top: 20px;
+        /* Reset */
+        font-size: 0.85rem;
+        /* Ensure it's legible */
+    }
+
+    /* Icon stays in flow, rightful place on right */
+
+    .index-title {
+        font-size: 76px;
+        line-height: 1;
+        font-weight: 400;
+        text-align: center;
+        padding-top: 20px;
+    }
+
+
+    .intro-centered {
+        margin-bottom: 3rem;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    .experience-list {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+}
+
+```

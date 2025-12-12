@@ -1,0 +1,470 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --primary-color: #333;
+    --background-color: #ffffff;
+    /* White background as requested */
+    --hero-bg: #00CC99;
+    /* Grey background as requested */
+    --hero-text: #ffffff;
+    --card-bg: #ffffff;
+    --spacing-unit: 1rem;
+    --placeholder-color: #EEEEEE;
+    /* Light grey for placeholder */
+}
+
+/* Column Content Styling */
+.column p {
+    margin-bottom: 0.2rem;
+    /* Adjusted spacing between paragraphs */
+}
+
+.column ul,
+.column ol {
+    list-style: none;
+    /* Remove default bullets */
+    margin-left: 0;
+    padding-left: 0;
+    margin-bottom: 2rem;
+}
+
+.column li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    /* Space for the arrow */
+    position: relative;
+}
+
+.column li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    top: 0;
+    /* Align with top line */
+    font-weight: 400;
+    /* Adjust weight if needed */
+    color: var(--primary-color);
+}
+
+/* Placeholder Block */
+.placeholder-block {
+    background-color: var(--placeholder-color);
+    width: 100%;
+    height: auto;
+    /* Allow height to adapt to content/image */
+    min-height: 200px;
+    /* Keep minimum height */
+    border-radius: 16px;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    /* Light shadow */
+    overflow: hidden;
+    /* Ensure content stays within rounded corners */
+}
+
+.placeholder-block img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Quote Styling */
+.quote-container {
+    text-align: center;
+    font-style: italic;
+    font-size: 1.1rem;
+    margin: 3rem 0;
+    /* Add generous spacing */
+    color: var(--primary-color);
+}
+
+.quote-container p {
+    margin-bottom: 1rem;
+}
+
+/* List Styling Enhancements */
+.column ol {
+    margin-left: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.column ol li {
+    margin-bottom: 0.5rem;
+}
+
+.column ol li strong {
+    font-weight: 700;
+}
+
+li {
+    list-style-type: none;
+}
+
+li:before {
+    content: "→ ";
+    /* caractère UTF-8 */
+
+}
+
+/* Nested lists */
+.column ul ul {
+    margin-top: 0.5rem;
+    list-style-type: circle;
+}
+
+/* Stats Grid Styling */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+}
+
+.stat-item {
+    text-align: left;
+}
+
+.stat-number {
+    font-size: 3.5rem;
+    font-weight: 300;
+    /* Regular weight as per image usually implies thin/regular for big display numbers */
+    color: #111;
+    /* Darker black */
+    line-height: 1.2;
+    margin-bottom: 0.2rem;
+}
+
+.stat-label {
+    font-size: 1rem;
+    font-weight: 300;
+    /* Use 600 or 700 for 'Bold' look */
+    color: var(--primary-color);
+
+}
+
+.stat-sub {
+    font-size: 1rem;
+    color: #888;
+    /* Grey color */
+    font-weight: 300;
+}
+
+/* Responsive adjustment for stats */
+@media (max-width: 600px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    padding-bottom: 200px;
+    /* Requested bottom spacing */
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Hero Section */
+/* No specific styles on the wrapper if we want margin on the block itself,
+   but user said "Dans le hero bloc fond gris margin 50px border radius 16px"
+   I will apply this to a container inside or the hero itself.
+   Let's apply to .hero-content container or the .hero div directly within padding constraints.
+   Actually, standard "hero block" usually implies the visible box. */
+.hero {
+    padding: 0 2rem;
+
+}
+
+/* The actual visual hero block */
+.hero-content {
+    background-color: var(--hero-bg);
+    background-image: none;
+    background-size: auto;
+    /* Keep original size */
+    background-position: right center;
+    /* Position to the right */
+    background-repeat: no-repeat;
+    color: var(--hero-text);
+    text-align: left;
+    border-radius: 16px;
+    margin: 50px auto;
+    /* 50px margin as requested */
+    margin-bottom: 0px;
+    max-width: calc(1100px - 4rem);
+    /* Ensure it fits nicely if main container is used, or just auto */
+    padding-top: 100px;
+    padding-bottom: 60px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    /* Light shadow */
+    overflow: hidden;
+    /* Ensure content stays within rounded corners */
+}
+
+/* Brand Title (first h1) */
+.hero-content h1:first-of-type {
+    font-size: 4rem;
+    /* Much larger as requested */
+    font-weight: 300;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    max-width: none;
+    /* Override default constraint */
+}
+
+/* Logo Image */
+.hero-content h1:first-of-type img {
+    border-radius: 16px;
+    height: 60px;
+    /* Adjust height if necessary to match text or keep original if suitable */
+    width: auto;
+    box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.1);
+    /* Soft shadow */
+}
+
+/* Tagline (second h1) */
+.hero-content h1:nth-of-type(2) {
+    font-family: 'Roboto', sans-serif;
+    font-size: 38px;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    max-width: 530px;
+}
+
+.hero h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 38px;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    max-width: 530px
+}
+
+.hero p {
+    font-size: 1rem;
+    /* Adjust if needed */
+    max-width: 530px
+}
+
+blockquote {
+    margin: 2rem 0;
+    padding-left: 1.25rem;
+    border-left: 3px solid #e5e5e5;
+    font-style: italic;
+    color: #6d6d6d;
+    font-size: 1.1rem;
+    max-width: 60ch;
+}
+
+
+
+/* Main Content Layout */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0rem;
+}
+
+@media (min-width: 1000px) {
+    .main-content {
+        grid-template-columns: 35fr 65fr;
+        gap: 2rem;
+    }
+
+    .column:not(.column-left) {
+        padding: 0 2rem;
+    }
+
+    .column-left {
+        position: sticky;
+        top: 2rem;
+        /* Stick 2rem from top */
+        align-self: start;
+        /* Prevent grid item stretching so sticky works */
+        height: auto;
+    }
+
+    .hero-content {
+        background-color: var(--hero-bg);
+        background-image: url('assets/mareduc-header.png');
+        background-size: auto;
+        /* Keep original size */
+        background-position: right center;
+        /* Position to the right */
+        background-repeat: no-repeat;
+        color: var(--hero-text);
+        text-align: left;
+        border-radius: 16px;
+        margin: 50px auto;
+        /* 50px margin as requested */
+        margin-bottom: 0px;
+        max-width: calc(1100px - 4rem);
+        padding-top: 100px;
+        padding-bottom: 60px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        /* Light shadow */
+        overflow: hidden;
+        /* Ensure content stays within rounded corners */
+    }
+
+    /* Brand Title (first h1) */
+    .hero-content h1:first-of-type {
+        font-size: 4rem;
+        /* Much larger as requested */
+        font-weight: 300;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        max-width: none;
+        /* Override default constraint */
+    }
+
+    /* Logo Image */
+    .hero-content h1:first-of-type img {
+        border-radius: 16px;
+        height: 60px;
+        /* Adjust height if necessary to match text or keep original if suitable */
+        width: auto;
+    }
+
+    /* Tagline (second h1) */
+    .hero-content h1:nth-of-type(2) {
+        font-family: 'Roboto', sans-serif;
+        font-size: 38px;
+        font-weight: 300;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+        max-width: 530px;
+    }
+
+    .hero h1 {
+        font-family: 'Roboto', sans-serif;
+        font-size: 38px;
+        font-weight: 300;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+        max-width: 530px
+    }
+
+}
+
+/* Column Styling */
+
+/* Right column (assuming "Colonne 2" keeps card style or similar) */
+
+
+/* Left Column Specifics */
+.column-left {
+    padding: 0 0;
+}
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 30;
+    margin-bottom: 1rem;
+    margin-top: 4rem;
+    color: var(--primary-color);
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 38px;
+    font-weight: 300;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+.tag {
+    background-color: #EEEEEE;
+    /* Light grey */
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+/* Animations */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger delays if needed (utility classes) */
+.delay-100 {
+    transition-delay: 0.1s;
+}
+
+.delay-200 {
+    transition-delay: 0.2s;
+}
+
+.delay-300 {
+    transition-delay: 0.3s;
+}
+
+/* Staggered Tag Animation */
+.tags-reveal-group .tag {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-out;
+    display: inline-block;
+    /* Required for transform to work on span */
+}
+
+.tags-reveal-group .tag.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Page Transition Animation */
+@keyframes pageSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.page-enter-active {
+    animation: pageSlideIn 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
