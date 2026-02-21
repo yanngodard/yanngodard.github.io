@@ -1,0 +1,233 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <style>
+      <![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;900&display=swap');
+      
+      :root {
+        --primary: #FF5A00;
+        --secondary: #1E293B;
+        --bg: #F8FAFC;
+        --gold: #FBBF24;
+        --gold-dark: #F59E0B;
+        --blue: #3B82F6;
+        --mint: #14B8A6;
+        --pink: #FE2C55;
+      }
+      
+      * {
+        font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        box-sizing: border-box;
+      }
+
+      /* Setup des éléments */
+      .box-anim {
+        transform-origin: 250px 360px;
+        animation: boxShake 4.5s ease-in-out infinite;
+      }
+
+      .lid-anim {
+        transform-origin: 250px 234px;
+        animation: lidPop 4.5s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+      }
+
+      .reward-anim {
+        transform-origin: 0px 0px;
+        animation: rewardEmerge 4.5s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+        filter: drop-shadow(0 15px 30px rgba(251, 191, 36, 0.5));
+      }
+
+      .sunburst-reveal {
+        transform-origin: 0px 0px;
+        animation: sunburstReveal 4.5s ease-in-out infinite;
+      }
+      
+      .sunburst-spin {
+        transform-origin: 0px 0px;
+        animation: sunburstSpin 8s linear infinite;
+      }
+
+      .text-anim {
+        transform-origin: 250px 440px;
+        animation: textUp 4.5s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+      }
+
+      /* Confetti Particles */
+      .p1, .p2, .p3, .p4, .p5, .p6 {
+        transform-box: fill-box;
+        transform-origin: center;
+      }
+      .p1 { animation: p1 4.5s cubic-bezier(0.25, 1, 0.5, 1) infinite; }
+      .p2 { animation: p2 4.5s cubic-bezier(0.25, 1, 0.5, 1) infinite; }
+      .p3 { animation: p3 4.5s cubic-bezier(0.25, 1, 0.5, 1) infinite; }
+      .p4 { animation: p4 4.5s cubic-bezier(0.25, 1, 0.5, 1) infinite; }
+      .p5 { animation: p5 4.5s cubic-bezier(0.25, 1, 0.5, 1) infinite; }
+      .p6 { animation: p6 4.5s cubic-bezier(0.25, 1, 0.5, 1) infinite; }
+
+      /* ================= KEYFRAMES ================= */
+
+      /* 1. Secousse de la Boite */
+      @keyframes boxShake {
+        0%, 10% { transform: translateX(0) rotate(0); }
+        12% { transform: translateX(-4px) rotate(-2deg); }
+        14% { transform: translateX(4px) rotate(2deg); }
+        16% { transform: translateX(-4px) rotate(-2deg); }
+        18%, 100% { transform: translateX(0) rotate(0); }
+      }
+
+      /* 2. Le couvercle qui saute */
+      @keyframes lidPop {
+        0%, 18% { transform: translateY(0) rotate(0); opacity: 1; }
+        25% { transform: translateY(-70px) rotate(15deg); opacity: 0; }
+        80% { transform: translateY(-70px) rotate(15deg); opacity: 0; }
+        86%, 100% { transform: translateY(0) rotate(0); opacity: 1; }
+      }
+
+      /* 3. L'Etoile (Récompense) qui jaillit */
+      @keyframes rewardEmerge {
+        0%, 18% { transform: translateY(100px) scale(0.2); opacity: 0; }
+        24% { transform: translateY(-15px) scale(1.1); opacity: 1; }
+        30%, 75% { transform: translateY(0) scale(1); opacity: 1; }
+        82%, 100% { transform: translateY(50px) scale(0.2); opacity: 0; }
+      }
+
+      /* 4. Le Rayonnement (Sunburst) */
+      @keyframes sunburstReveal {
+        0%, 20% { opacity: 0; transform: scale(0.5); }
+        28%, 70% { opacity: 1; transform: scale(1); }
+        80%, 100% { opacity: 0; transform: scale(0.5); }
+      }
+      @keyframes sunburstSpin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(180deg); }
+      }
+
+      /* 5. Le Texte Apparaît */
+      @keyframes textUp {
+        0%, 20% { opacity: 0; transform: translateY(15px); }
+        27%, 75% { opacity: 1; transform: translateY(0); }
+        82%, 100% { opacity: 0; transform: translateY(-10px); }
+      }
+
+      /* 6. Les Confettis Explosent */
+      @keyframes p1 {
+        0%, 18% { opacity: 0; transform: translate(0, 0) scale(0.5); }
+        19% { opacity: 1; }
+        35%, 100% { opacity: 0; transform: translate(-90px, -130px) scale(1.5) rotate(180deg); }
+      }
+      @keyframes p2 {
+        0%, 18% { opacity: 0; transform: translate(0, 0) scale(0.5); }
+        19% { opacity: 1; }
+        35%, 100% { opacity: 0; transform: translate(80px, -140px) scale(1.5) rotate(-180deg); }
+      }
+      @keyframes p3 {
+        0%, 18% { opacity: 0; transform: translate(0, 0) scale(0.5); }
+        19% { opacity: 1; }
+        35%, 100% { opacity: 0; transform: translate(-120px, -40px) scale(1.5) rotate(90deg); }
+      }
+      @keyframes p4 {
+        0%, 18% { opacity: 0; transform: translate(0, 0) scale(0.5); }
+        19% { opacity: 1; }
+        35%, 100% { opacity: 0; transform: translate(120px, -50px) scale(1.5) rotate(-90deg); }
+      }
+      @keyframes p5 {
+        0%, 18% { opacity: 0; transform: translate(0, 0) scale(0.5); }
+        19% { opacity: 1; }
+        35%, 100% { opacity: 0; transform: translate(-50px, -180px) scale(1.4) rotate(135deg); }
+      }
+      @keyframes p6 {
+        0%, 18% { opacity: 0; transform: translate(0, 0) scale(0.5); }
+        19% { opacity: 1; }
+        35%, 100% { opacity: 0; transform: translate(50px, -190px) scale(1.6) rotate(-135deg); }
+      }
+      ]]>
+    </style>
+  </defs>
+
+  <!-- Fond -->
+  <rect width="100%" height="100%" fill="var(--bg)" />
+
+  <!-- Ombre de la boîte -->
+  <ellipse cx="250" cy="365" rx="80" ry="12" fill="rgba(15, 23, 42, 0.08)" />
+
+  <!-- ======= GROUPE PRINCIPAL BOITE ======= -->
+  <g class="box-anim">
+    
+    <!-- Fond noir de l'intérieur de la boîte -->
+    <rect x="180" y="240" width="140" height="30" rx="4" fill="#0F172A" />
+    
+    <!-- Sunburst Révélé derrière l'étoile -->
+    <g transform="translate(250, 160)">
+      <g class="sunburst-reveal">
+        <g class="sunburst-spin">
+          <polygon points="-12,-160 12,-160 0,0" fill="#FEF3C7" opacity="0.7" />
+          <polygon points="-12,-160 12,-160 0,0" fill="#FEF3C7" opacity="0.7" transform="rotate(45)" />
+          <polygon points="-12,-160 12,-160 0,0" fill="#FEF3C7" opacity="0.7" transform="rotate(90)" />
+          <polygon points="-12,-160 12,-160 0,0" fill="#FEF3C7" opacity="0.7" transform="rotate(135)" />
+          <polygon points="-12,-160 12,-160 0,0" fill="#FEF3C7" opacity="0.7" transform="rotate(180)" />
+          <polygon points="-12,-160 12,-160 0,0" fill="#FEF3C7" opacity="0.7" transform="rotate(225)" />
+          <polygon points="-12,-160 12,-160 0,0" fill="#FEF3C7" opacity="0.7" transform="rotate(270)" />
+          <polygon points="-12,-160 12,-160 0,0" fill="#FEF3C7" opacity="0.7" transform="rotate(315)" />
+        </g>
+      </g>
+    </g>
+
+    <!-- ======== LA RÉCOMPENSE (ÉTOILE) ======== -->
+    <g transform="translate(250, 160)">
+      <g class="reward-anim">
+        <!-- Etoile Principale (Droppée de l'Ombre via CSS) -->
+        <polygon points="0,-48 14,-14 50,-14 20,8 32,42 0,20 -32,42 -20,8 -50,-14 -14,-14" fill="var(--gold)" />
+        <!-- Moitié ombrée pour l'effet 3D biseauté premium -->
+        <polygon points="0,-48 0,20 -32,42 -20,8 -50,-14 -14,-14" fill="var(--gold-dark)" />
+        <!-- Texte 14J -->
+        <text x="0" y="10" font-size="26" font-weight="900" text-anchor="middle" fill="#FFFFFF">14<tspan font-size="14" dy="-2">J</tspan></text>
+      </g>
+    </g>
+    
+    <!-- ======== LES CONFETTIS ======== -->
+    <g class="confetti">
+      <circle cx="250" cy="250" r="7" fill="var(--primary)" class="p1" />
+      <rect x="244" y="244" width="12" height="12" fill="var(--blue)" class="p2" />
+      <circle cx="250" cy="250" r="5" fill="var(--mint)" class="p3" />
+      <rect x="243" y="247" width="14" height="6" rx="3" fill="var(--gold-dark)" class="p4" />
+      <circle cx="250" cy="250" r="8" fill="var(--pink)" class="p5" />
+      <polygon points="250,242 258,256 242,256" fill="var(--primary)" class="p6" />
+    </g>
+
+    <!-- ======== LA BOITE CADEAU ======== -->
+    <!-- Structure Base -->
+    <rect x="180" y="250" width="140" height="110" rx="8" fill="var(--secondary)" />
+    <!-- Ombre base interne pour la profondeur -->
+    <rect x="180" y="340" width="140" height="20" rx="8" fill="#0F172A" opacity="0.3" /> 
+    
+    <!-- Ruban vertical sur la base -->
+    <rect x="235" y="250" width="30" height="110" fill="var(--primary)" />
+
+    <!-- Le Couvercle Animé et qui vole ! -->
+    <g class="lid-anim">
+      <!-- Toit du Couvercle -->
+      <rect x="170" y="215" width="160" height="38" rx="6" fill="var(--secondary)" />
+      <!-- Rebord sombre sous le couvercle -->
+      <rect x="170" y="245" width="160" height="8" rx="3" fill="#0F172A" opacity="0.3" />
+      
+      <!-- Ruban du couvercle -->
+      <rect x="235" y="215" width="30" height="38" fill="var(--primary)" />
+      
+      <!-- Noeud Papillon Gauche -->
+      <path d="M 250 215 C 220 180, 180 210, 240 220 Z" fill="var(--primary)" stroke="#EA580C" stroke-width="2" />
+      <!-- Noeud Papillon Droit -->
+      <path d="M 250 215 C 280 180, 320 210, 260 220 Z" fill="var(--primary)" stroke="#EA580C" stroke-width="2" />
+      
+      <!-- Boule du noeud central -->
+      <circle cx="250" cy="216" r="6" fill="#EA580C" />
+      <circle cx="248" cy="214" r="2" fill="#FFFFFF" opacity="0.4" /> <!-- Mini highlight -->
+    </g>
+
+  </g>
+
+  <!-- ======= TEXTES DE FÉLICITATION ======= -->
+  <g class="text-anim">
+    <text x="250" y="440" font-size="28" font-weight="900" text-anchor="middle" fill="#0F172A" letter-spacing="-0.5">SÉANCE TERMINÉE !</text>
+    <text x="250" y="465" font-size="15" font-weight="700" text-anchor="middle" fill="#64748B">Super travail, on continue comme ça 🔥</text>
+  </g>
+</svg>

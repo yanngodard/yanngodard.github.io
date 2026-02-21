@@ -1,0 +1,220 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;900&amp;display=swap');
+      
+      * {
+        font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      }
+      
+      :root {
+        --primary: #FF5A00;
+        --secondary: #1E293B;
+        --bg: #F8FAFC;
+        --card: #FFFFFF;
+        --blue: #3B82F6;
+        --track-bg: #F1F5F9;
+        --track-border: #CBD5E1;
+      }
+
+      /* Animations d'arrière-plan */
+      .bg-wave {
+        stroke: #E0F2FE;
+        stroke-width: 50;
+        stroke-linecap: round;
+        opacity: 0.6;
+        animation: floatWave 8s ease-in-out infinite alternate;
+      }
+      .bg-wave-2 {
+        stroke: #FFEDD5;
+        stroke-width: 30;
+        stroke-linecap: round;
+        opacity: 0.8;
+        animation: floatWave 12s ease-in-out infinite alternate-reverse;
+      }
+
+      @keyframes floatWave {
+        0% { transform: translateY(0px); }
+        100% { transform: translateY(-40px); }
+      }
+
+      /* Base de la carte */
+      .card-wrapper {
+        transform: translate(150px, 35px);
+        transform-origin: center;
+      }
+      .main-card {
+        filter: drop-shadow(0 20px 40px rgba(15, 23, 42, 0.08));
+      }
+
+      /* Pastille qui clignote */
+      .echo-dot {
+        animation: echoPulse 1.5s infinite ease-out;
+        transform-box: fill-box;
+        transform-origin: center;
+      }
+      @keyframes echoPulse {
+        0% { transform: scale(1); opacity: 1; stroke-width: 2px; }
+        100% { transform: scale(3.5); opacity: 0; stroke-width: 0px; }
+      }
+
+      /* Animation de la piste d'entrainement */
+      .track-progress {
+        stroke-dasharray: 771.3;
+        stroke-dashoffset: 771.3;
+        animation: runTrack 6s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+      }
+      @keyframes runTrack {
+        0% { stroke-dashoffset: 771.3; stroke: var(--blue); }
+        45%, 55% { stroke-dashoffset: 130; stroke: var(--primary); } /* Pause à la fin d'un intervalle */
+        100% { stroke-dashoffset: -771.3; stroke: var(--blue); } /* Reset fluide */
+      }
+
+      .track-pattern {
+        stroke-dasharray: 6 14;
+        animation: moveBelt 1.5s linear infinite;
+      }
+      @keyframes moveBelt {
+        0% { stroke-dashoffset: 20; }
+        100% { stroke-dashoffset: 0; }
+      }
+
+      /* Tuiles de statistiques sans survol */
+      .metric {
+        /* Style de base conservé */
+      }
+      
+      .metric-icon-group {
+        transform-box: fill-box;
+        transform-origin: center;
+      }
+
+      .bounce-anim {
+        animation: bounceIcon 3s ease-in-out infinite;
+      }
+      @keyframes bounceIcon {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-4px); }
+      }
+
+      .wobble-anim {
+        animation: wobbleIcon 4s ease-in-out infinite;
+      }
+      @keyframes wobbleIcon {
+        0%, 100% { transform: rotate(0deg); }
+        25% { transform: rotate(-8deg); }
+        75% { transform: rotate(8deg); }
+      }
+
+      .pulse-anim {
+        animation: pulseHeart 1.5s ease-in-out infinite;
+      }
+      @keyframes pulseHeart {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.15); }
+      }
+
+      /* Styles et interactions du bouton */
+      .start-btn {
+        cursor: pointer;
+        transform-box: fill-box;
+        transform-origin: center;
+        transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .start-btn .btn-bg {
+        transition: fill 0.3s ease;
+      }
+      .start-btn:active {
+        transform: scale(0.97); /* Léger enfoncement au clic */
+      }
+      .start-btn:active .btn-bg {
+        fill: var(--primary); /* Devient Orange de Campus au clic */
+      }
+    </style>
+  </defs>
+
+  <!-- Arrière-plan (Grille de points style UI Sportive) -->
+  <rect width="100%" height="100%" fill="var(--bg)" />
+  <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+    <circle cx="2" cy="2" r="1.5" fill="var(--track-border)" opacity="0.6" />
+  </pattern>
+  <rect width="100%" height="100%" fill="url(#dots)" />
+
+  <!-- Formes organiques animées en fond -->
+  <path class="bg-wave" d="M -50 480 Q 250 320 550 550 T 900 400" fill="none" />
+  <path class="bg-wave-2" d="M -50 150 Q 200 -50 450 180 T 900 50" fill="none" />
+
+  <!-- CONTENEUR PRINCIPAL (CARTE) -->
+  <g class="card-wrapper">
+    <rect class="main-card" x="0" y="0" width="500" height="530" rx="36" fill="var(--card)" />
+
+    <!-- Tag Semaine En-tête -->
+    <rect x="60" y="40" width="135" height="28" rx="14" fill="#FFEDD5" />
+    <circle cx="76" cy="54" r="4" fill="none" stroke="var(--primary)" class="echo-dot" />
+    <circle cx="76" cy="54" r="4" fill="var(--primary)" />
+    <text x="88" y="58" font-size="11" font-weight="800" fill="var(--primary)" letter-spacing="0.5">SEMAINE 4 / 12</text>
+
+    <!-- Titres -->
+    <text x="60" y="115" font-size="34" font-weight="900" fill="var(--text-dark)" letter-spacing="-1">Objectif Marathon</text>
+    <text x="60" y="140" font-size="15" font-weight="700" fill="#64748B">Programme de préparation spécifique</text>
+
+    <!-- Piste de course Animée (Track loops) -->
+    <g class="track-group">
+      <!-- Contour large -->
+      <path d="M 120 190 L 380 190 A 40 40 0 0 1 380 270 L 120 270 A 40 40 0 0 1 120 190 Z" fill="none" stroke="var(--track-bg)" stroke-width="24" stroke-linecap="round" />
+      <!-- Lignes de rythme (tapis roulant) -->
+      <path class="track-pattern" d="M 120 190 L 380 190 A 40 40 0 0 1 380 270 L 120 270 A 40 40 0 0 1 120 190 Z" fill="none" stroke="var(--track-border)" stroke-width="2" />
+      <!-- Course (progression colorée) -->
+      <path class="track-progress" d="M 120 190 L 380 190 A 40 40 0 0 1 380 270 L 120 270 A 40 40 0 0 1 120 190 Z" fill="none" stroke-width="16" stroke-linecap="round" />
+      
+      <!-- Textes d'allure cible au milieu -->
+      <text x="250" y="222" text-anchor="middle" font-size="11" font-weight="800" fill="#64748B" letter-spacing="1">ALLURE CIBLE</text>
+      <text x="250" y="255" text-anchor="middle" font-size="34" font-weight="900" fill="#0F172A">5:15<tspan font-size="16" font-weight="600" fill="#94A3B8"> /km</tspan></text>
+    </g>
+
+    <!-- Tuiles de Statistiques (Distance, Workouts, BPM) -->
+    <!-- Metric 1 : KILOMÈTRES -->
+    <g class="metric" transform="translate(60, 320)">
+      <rect width="110" height="90" rx="20" fill="var(--bg)" class="metric-card" />
+      <circle cx="55" cy="30" r="14" fill="#DBEAFE" />
+      <g class="metric-icon-group bounce-anim">
+        <path d="M 55 21 A 6 6 0 0 1 61 27 C 61 32 55 39 55 39 C 55 39 49 32 49 27 A 6 6 0 0 1 55 21 Z" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linejoin="round" />
+        <circle cx="55" cy="27" r="2" fill="var(--blue)"/>
+      </g>
+      <text x="55" y="66" text-anchor="middle" font-size="22" font-weight="900" fill="#0F172A">42.2</text>
+      <text x="55" y="80" text-anchor="middle" font-size="10" font-weight="800" fill="#64748B" letter-spacing="0.5">KILOMÈTRES</text>
+    </g>
+
+    <!-- Metric 2 : SÉANCES -->
+    <g class="metric" transform="translate(195, 320)">
+      <rect width="110" height="90" rx="20" fill="var(--bg)" class="metric-card" />
+      <circle cx="55" cy="30" r="14" fill="#FEF3C7" />
+      <g class="metric-icon-group wobble-anim">
+        <path d="M 56 21 L 50 29.5 L 55 29.5 L 53 38 L 61 27.5 L 56 27.5 Z" fill="#F59E0B" />
+      </g>
+      <text x="55" y="66" text-anchor="middle" font-size="22" font-weight="900" fill="#0F172A">3</text>
+      <text x="55" y="80" text-anchor="middle" font-size="10" font-weight="800" fill="#64748B" letter-spacing="0.5">SÉANCES</text>
+    </g>
+
+    <!-- Metric 3 : BPM CIBLE -->
+    <g class="metric" transform="translate(330, 320)">
+      <rect width="110" height="90" rx="20" fill="var(--bg)" class="metric-card" />
+      <circle cx="55" cy="30" r="14" fill="#FEE2E2" />
+      <g class="metric-icon-group pulse-anim">
+        <path d="M 55 38 C 55 38 46 32 46 26 A 4.5 4.5 0 0 1 55 23 A 4.5 4.5 0 0 1 64 26 C 64 32 55 38 55 38 Z" fill="#EF4444" />
+      </g>
+      <text x="55" y="66" text-anchor="middle" font-size="22" font-weight="900" fill="#0F172A">145</text>
+      <text x="55" y="80" text-anchor="middle" font-size="10" font-weight="800" fill="#64748B" letter-spacing="0.5">BPM CIBLE</text>
+    </g>
+
+    <!-- Bouton Démarrer la séance -->
+    <g transform="translate(60, 440)">
+      <g class="start-btn">
+        <rect width="380" height="56" rx="28" fill="var(--secondary)" class="btn-bg"/>
+        <text x="175" y="34" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF" letter-spacing="1">DÉMARRER LA SÉANCE</text>
+        <path class="play-icon" d="M 293 28 L 283 21 L 283 35 Z" fill="#FFFFFF"/>
+      </g>
+    </g>
+
+  </g>
+</svg>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Campus - Interactive UI & Motion Showcase</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF5A00;
+            --secondary: #1E293B;
+            --bg-light: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: #FFFFFF;
+            color: var(--secondary);
+            overflow-x: hidden;
+            padding-bottom: 60px;
+        }
+
+        /* --- Section 1: Top Branding --- */
+        .section-branding {
+            background-color: #FFFFFF;
+            padding: 60px 20px 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .branding-logo {
+            width: 480px;
+            height: 480px;
+            flex-shrink: 0;
+        }
+
+        /* --- Section 1.5: Intro Hero --- */
+        .section-intro {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .intro-title {
+            font-size: 42px;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+
+        .intro-text {
+            font-size: 18px;
+            font-weight: 500;
+            color: #64748B;
+            line-height: 1.6;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* --- Section 2: Vertical Stack (Animations) --- */
+        .section-grid {
+            max-width: 966px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .grid-item {
+            width: 100%;
+            border-radius: 40px;
+            overflow: hidden;
+            display: block;
+        }
+
+        img,
+        object {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* --- Section 3: Footer (Reward + Nav) --- */
+        .section-footer {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            padding: 40px 20px 80px;
+        }
+
+        .reward-box {
+            width: 100%;
+            max-width: 966px;
+            border-radius: 40px;
+            overflow: hidden;
+        }
+
+        .nav-bar-box {
+            width: 100%;
+            max-width: 814px;
+        }
+
+        /* Responsive */
+        @media (max-width: 850px) {
+            .nav-bar-box {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Logo en haut de page -->
+    <div class="section-branding">
+        <div class="branding-logo">
+            <object data="visuels/campus-animation-ios.svg" type="image/svg+xml" class="branding-logo"></object>
+        </div>
+    </div>
+
+    <!-- Intro Text: Contextualisation pour les recruteurs -->
+    <div class="section-intro">
+        <h1 class="intro-title">Interactive UI & Motion Design Showcase</h1>
+        <p class="intro-text">
+            Exploration et prototypage d'animation au format SVG afin de valoriser l'expérience utilisateur.
+        </p>
+    </div>
+
+    <!-- Middle: Stack of Animations -->
+    <div class="section-grid">
+        <div class="grid-item">
+            <object data="visuels/campus-animation.svg" type="image/svg+xml" class="grid-item"></object>
+        </div>
+        <div class="grid-item">
+            <object data="visuels/campus-animation-debutant.svg" type="image/svg+xml" class="grid-item"></object>
+        </div>
+        <div class="grid-item">
+            <object data="visuels/campus-animation-ppg.svg" type="image/svg+xml" class="grid-item"></object>
+        </div>
+        <div class="grid-item">
+            <object data="visuels/campus-animation-trail.svg" type="image/svg+xml" class="grid-item"></object>
+        </div>
+    </div>
+
+    <!-- Footer: Reward then Navigation Bar -->
+    <div class="section-footer">
+        <div class="reward-box">
+            <object data="visuels/campus-animation-reward.svg" type="image/svg+xml" class="reward-box"></object>
+        </div>
+        <div class="nav-bar-box">
+            <object data="visuels/campus-animation-features.svg" type="image/svg+xml" class="nav-bar-box"></object>
+        </div>
+    </div>
+
+</body>
+
+</html>

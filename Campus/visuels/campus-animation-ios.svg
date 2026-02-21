@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <style>
+      <![CDATA[
+      :root {
+        --logo-color: #1A233A;
+        --bg-mint: #E4EFEB;
+        --bg-yellow: #FDF0CD;
+        --bg-pink: #F3C8D7;
+        /* Bezier d'amorti Apple : Overshoot prononcé */
+        --ios-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+      
+      * {
+        box-sizing: border-box;
+      }
+
+      /* 
+       * ANIMATION 1 : SPRING POP (CENTRE 0% -> 120% -> 100%)
+       */
+      .spring-wrapper {
+        transform-origin: 200px 200px;
+        animation: springPop 4s var(--ios-spring) infinite;
+      }
+
+      @keyframes springPop {
+        0% {
+          transform: scale(0);
+          opacity: 0;
+        }
+        8%, 12% {
+          transform: scale(1.2); /* Overshoot */
+          opacity: 1;
+        }
+        20%, 80% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        90% {
+          transform: scale(1.1);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(0);
+          opacity: 0;
+        }
+      }
+
+      /* 
+       * ANIMATION 2 : MICRO-BATTEMENT ET ROTATION (15°)
+       */
+      .beat-rotate {
+        transform-origin: 200px 200px;
+        animation: secondaryMotion 4s ease-in-out infinite;
+      }
+
+      @keyframes secondaryMotion {
+        0%, 20% {
+          transform: rotate(0deg);
+        }
+        35% {
+          /* Rotation rapide de 15 degrés */
+          transform: rotate(15deg) scale(1.05);
+        }
+        50% {
+          /* Retour et micro-battement inverse */
+          transform: rotate(-5deg) scale(0.98);
+        }
+        65%, 80% {
+          transform: rotate(0deg) scale(1);
+        }
+      }
+      ]]>
+    </style>
+
+    <clipPath id="squircle-clip">
+      <rect x="80" y="80" width="240" height="240" rx="54" />
+    </clipPath>
+  </defs>
+
+  <g class="spring-wrapper">
+    <g class="beat-rotate">
+      
+      <!-- Base squircle blanche -->
+      <rect x="80" y="80" width="240" height="240" rx="54" fill="#FFFFFF" />
+      
+      <g clip-path="url(#squircle-clip)">
+        <rect width="100%" height="100%" fill="var(--bg-mint)" />
+        <path fill="var(--bg-yellow)" d="M 150 -20 L 420 -20 L 420 420 L 300 420 Q 280 320 350 180 L 260 150 Z" />
+        <path fill="var(--bg-pink)" d="M -20 240 L 260 150 L 350 180 Q 280 320 300 420 L -20 420 Z" />
+      </g>
+      
+      <!-- Logo "A" -->
+      <g transform="translate(200, 200) scale(0.5) translate(-200, -200)">
+        <path d="M 80 285 L 165 115 L 235 115 L 320 285 L 260 285 L 200 165 L 140 285 Z" fill="var(--logo-color)" />
+        <path d="M 166 285 L 200 217 L 234 285 Z" fill="var(--logo-color)" />
+      </g>
+      
+    </g>
+  </g>
+</svg>

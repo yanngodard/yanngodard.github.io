@@ -1,0 +1,239 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;900&amp;display=swap');
+      
+      * {
+        font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      }
+      
+      :root {
+        --primary: #FF5A00;
+        --secondary: #1E293B;
+        --bg: #F8FAFC;
+        --card: #FFFFFF;
+        --blue: #3B82F6;
+        --track-bg: #F1F5F9;
+        --track-border: #CBD5E1;
+        --text-dark: #0F172A;
+      }
+
+      /* Animations d'arrière-plan */
+      .bg-wave {
+        stroke: #E0F2FE;
+        stroke-width: 50;
+        stroke-linecap: round;
+        opacity: 0.6;
+        animation: floatWave 8s ease-in-out infinite alternate;
+      }
+      .bg-wave-2 {
+        stroke: #FFEDD5;
+        stroke-width: 30;
+        stroke-linecap: round;
+        opacity: 0.8;
+        animation: floatWave 12s ease-in-out infinite alternate-reverse;
+      }
+
+      @keyframes floatWave {
+        0% { transform: translateY(0px); }
+        100% { transform: translateY(-40px); }
+      }
+
+      /* Base de la carte */
+      .card-wrapper {
+        transform: translate(150px, 35px);
+        transform-origin: center;
+      }
+      .main-card {
+        filter: drop-shadow(0 20px 40px rgba(15, 23, 42, 0.08));
+      }
+
+      /* Pastille qui clignote */
+      .echo-dot {
+        animation: echoPulse 1.5s infinite ease-out;
+        transform-box: fill-box;
+        transform-origin: center;
+      }
+      @keyframes echoPulse {
+        0% { transform: scale(1); opacity: 1; stroke-width: 2px; }
+        100% { transform: scale(3.5); opacity: 0; stroke-width: 0px; }
+      }
+
+      /* Animations centrales PPG */
+      .pulse-ring {
+        animation: ringPulse 2.5s ease-out infinite;
+        transform-origin: 250px 235px;
+      }
+      .pulse-ring-2 {
+        animation: ringPulse 2.5s ease-out infinite 1.25s;
+        transform-origin: 250px 235px;
+      }
+      @keyframes ringPulse {
+        0% { transform: scale(0.6); opacity: 0; stroke-width: 0px; }
+        50% { transform: scale(1); opacity: 1; stroke-width: 4px; }
+        100% { transform: scale(1.6); opacity: 0; stroke-width: 0px; }
+      }
+
+      .dumbbell-lift {
+        animation: liftAnim 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        transform-origin: 250px 236px;
+      }
+      @keyframes liftAnim {
+        0%, 100% { transform: translateY(15px); }
+        50% { transform: translateY(-20px); }
+      }
+
+      .shadow-shrink {
+        animation: shadowAnim 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        transform-origin: 250px 275px;
+      }
+      @keyframes shadowAnim {
+        0%, 100% { transform: scaleX(1); opacity: 0.6; }
+        50% { transform: scaleX(0.7); opacity: 0.2; }
+      }
+      
+      .metric-icon-group {
+        transform-box: fill-box;
+        transform-origin: center;
+      }
+
+      .bounce-anim {
+        animation: bounceIcon 3s ease-in-out infinite;
+      }
+      @keyframes bounceIcon {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-4px); }
+      }
+
+      .wobble-anim {
+        animation: wobbleIcon 4s ease-in-out infinite;
+      }
+      @keyframes wobbleIcon {
+        0%, 100% { transform: rotate(0deg); }
+        25% { transform: rotate(-8deg); }
+        75% { transform: rotate(8deg); }
+      }
+
+      .pulse-anim {
+        animation: pulseHeart 1.5s ease-in-out infinite;
+      }
+      @keyframes pulseHeart {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.15); }
+      }
+
+      /* Styles et interactions du bouton */
+      .start-btn {
+        cursor: pointer;
+        transform-box: fill-box;
+        transform-origin: center;
+        transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .start-btn .btn-bg {
+        transition: fill 0.3s ease;
+      }
+      .start-btn:active {
+        transform: scale(0.97); /* Léger enfoncement au clic */
+      }
+      .start-btn:active .btn-bg {
+        fill: var(--primary); /* Devient Orange de Campus au clic */
+      }
+    </style>
+  </defs>
+
+  <!-- Arrière-plan -->
+  <rect width="100%" height="100%" fill="var(--bg)" />
+  <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+    <circle cx="2" cy="2" r="1.5" fill="var(--track-border)" opacity="0.6" />
+  </pattern>
+  <rect width="100%" height="100%" fill="url(#dots)" />
+  <path class="bg-wave" d="M -50 480 Q 250 320 550 550 T 900 400" fill="none" />
+  <path class="bg-wave-2" d="M -50 150 Q 200 -50 450 180 T 900 50" fill="none" />
+
+  <!-- CONTENEUR PRINCIPAL -->
+  <g class="card-wrapper">
+    <rect class="main-card" x="0" y="0" width="500" height="530" rx="36" fill="var(--card)" />
+
+    <!-- Tag En-tête -->
+    <rect x="60" y="40" width="155" height="28" rx="14" fill="#FFEDD5" />
+    <circle cx="76" cy="54" r="4" fill="none" stroke="var(--primary)" class="echo-dot" />
+    <circle cx="76" cy="54" r="4" fill="var(--primary)" />
+    <text x="88" y="58" font-size="11" font-weight="800" fill="var(--primary)" letter-spacing="0.5">PPG - SÉANCE 1 / 3</text>
+
+    <!-- Titres -->
+    <text x="60" y="115" font-size="34" font-weight="900" fill="var(--text-dark)" letter-spacing="-1">Programme PPG</text>
+    <text x="60" y="140" font-size="15" font-weight="700" fill="#64748B">Renforcement musculaire général</text>
+
+    <!-- Visuel Central Animé (PPG) -->
+    <g class="central-graphic">
+      <rect x="120" y="180" width="260" height="110" rx="30" fill="var(--track-bg)" />
+      
+      <!-- Cercles de progression (pulse) -->
+      <circle class="pulse-ring" cx="250" cy="235" r="45" fill="none" stroke="var(--primary)" stroke-width="2" />
+      <circle class="pulse-ring-2" cx="250" cy="235" r="45" fill="none" stroke="var(--blue)" stroke-width="2" />
+      
+      <!-- Ombre de l'haltère -->
+      <ellipse class="shadow-shrink" cx="250" cy="272" rx="40" ry="6" fill="#CBD5E1" opacity="0.6" />
+      
+      <!-- Haltère animée (Lift) -->
+      <g class="dumbbell-lift">
+        <!-- Barre -->
+        <rect x="140" y="230" width="220" height="12" rx="6" fill="#94A3B8" />
+        <!-- Poids Inters -->
+        <rect x="175" y="205" width="16" height="62" rx="6" fill="var(--blue)" />
+        <rect x="309" y="205" width="16" height="62" rx="6" fill="var(--blue)" />
+        <!-- Poids Extérieurs -->
+        <rect x="155" y="195" width="20" height="82" rx="8" fill="var(--secondary)" />
+        <rect x="325" y="195" width="20" height="82" rx="8" fill="var(--secondary)" />
+        <rect x="145" y="220" width="10" height="32" rx="4" fill="#64748B" />
+        <rect x="345" y="220" width="10" height="32" rx="4" fill="#64748B" />
+      </g>
+    </g>
+
+    <!-- Tuiles de Statistiques -->
+    <!-- Metric 1 : TEMPS -->
+    <g class="metric" transform="translate(60, 320)">
+      <rect width="110" height="90" rx="20" fill="var(--bg)" class="metric-card" />
+      <circle cx="55" cy="30" r="14" fill="#DBEAFE" />
+      <g class="metric-icon-group wobble-anim">
+        <circle cx="55" cy="30" r="9" fill="none" stroke="var(--blue)" stroke-width="2" />
+        <path d="M 55 21 V 18 M 52 18 H 58" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" />
+        <path d="M 55 30 V 25 L 58 28" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </g>
+      <text x="55" y="66" text-anchor="middle" font-size="22" font-weight="900" fill="#0F172A">35</text>
+      <text x="55" y="80" text-anchor="middle" font-size="10" font-weight="800" fill="#64748B" letter-spacing="0.5">MINUTES</text>
+    </g>
+
+    <!-- Metric 2 : EXERCICES -->
+    <g class="metric" transform="translate(195, 320)">
+      <rect width="110" height="90" rx="20" fill="var(--bg)" class="metric-card" />
+      <circle cx="55" cy="30" r="14" fill="#FEF3C7" />
+      <g class="metric-icon-group bounce-anim">
+        <path d="M 44 30 h 22 M 46 26 v 8 M 64 26 v 8 M 50 28 v 4 M 60 28 v 4" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" />
+      </g>
+      <text x="55" y="66" text-anchor="middle" font-size="22" font-weight="900" fill="#0F172A">6</text>
+      <text x="55" y="80" text-anchor="middle" font-size="10" font-weight="800" fill="#64748B" letter-spacing="0.5">EXERCICES</text>
+    </g>
+
+    <!-- Metric 3 : INTENSITÉ -->
+    <g class="metric" transform="translate(330, 320)">
+      <rect width="110" height="90" rx="20" fill="var(--bg)" class="metric-card" />
+      <circle cx="55" cy="30" r="14" fill="#FEE2E2" />
+      <g class="metric-icon-group pulse-anim">
+        <path d="M 55 16 C 50 22 46 26 46 32 A 9 9 0 0 0 64 32 C 64 26 60 22 55 16 Z" fill="#EF4444" />
+        <path d="M 55 24 C 53 27 51 29 51 32 A 4 4 0 0 0 59 32 C 59 29 57 27 55 24 Z" fill="#FFEDD5" />
+      </g>
+      <text x="55" y="66" text-anchor="middle" font-size="22" font-weight="900" fill="#0F172A">FORT</text>
+      <text x="55" y="80" text-anchor="middle" font-size="10" font-weight="800" fill="#64748B" letter-spacing="0.5">INTENSITÉ</text>
+    </g>
+
+    <!-- Bouton Démarrer -->
+    <g transform="translate(60, 440)">
+      <g class="start-btn">
+        <rect width="380" height="56" rx="28" fill="var(--secondary)" class="btn-bg"/>
+        <text x="175" y="34" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF" letter-spacing="1">DÉMARRER LA SÉANCE</text>
+        <path class="play-icon" d="M 293 28 L 283 21 L 283 35 Z" fill="#FFFFFF"/>
+      </g>
+    </g>
+  </g>
+</svg>

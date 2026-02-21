@@ -1,0 +1,247 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;900&amp;display=swap');
+      
+      * {
+        font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      }
+      
+      :root {
+        --primary: #FF5A00;
+        --secondary: #1E293B;
+        --bg: #F8FAFC;
+        --card: #FFFFFF;
+        --blue: #3B82F6;
+        --track-bg: #E2E8F0;
+        --track-border: #CBD5E1;
+        --text-dark: #0F172A;
+      }
+
+      /* Animations d'arrière-plan */
+      .bg-wave {
+        stroke: #E0F2FE;
+        stroke-width: 50;
+        stroke-linecap: round;
+        opacity: 0.6;
+        animation: floatWave 8s ease-in-out infinite alternate;
+      }
+      .bg-wave-2 {
+        stroke: #FFEDD5;
+        stroke-width: 30;
+        stroke-linecap: round;
+        opacity: 0.8;
+        animation: floatWave 12s ease-in-out infinite alternate-reverse;
+      }
+
+      @keyframes floatWave {
+        0% { transform: translateY(0px); }
+        100% { transform: translateY(-40px); }
+      }
+
+      /* Base de la carte */
+      .card-wrapper {
+        transform: translate(150px, 35px);
+        transform-origin: center;
+      }
+      .main-card {
+        filter: drop-shadow(0 20px 40px rgba(15, 23, 42, 0.08));
+      }
+
+      /* Pastille qui clignote */
+      .echo-dot {
+        animation: echoPulse 1.5s infinite ease-out;
+        transform-box: fill-box;
+        transform-origin: center;
+      }
+      @keyframes echoPulse {
+        0% { transform: scale(1); opacity: 1; stroke-width: 2px; }
+        100% { transform: scale(3.5); opacity: 0; stroke-width: 0px; }
+      }
+
+      /* Animations de la Chaussure */
+      .shoe-anim-group {
+        animation: shoeBounce 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        transform-origin: 130px 65px;
+      }
+      @keyframes shoeBounce {
+        0%, 100% { transform: translateY(12px) rotate(-1deg); }
+        50% { transform: translateY(-12px) rotate(3deg); }
+      }
+      
+      .shoe-shadow {
+        animation: shoeShadow 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        transform-origin: 245px 272px;
+      }
+      @keyframes shoeShadow {
+        0%, 100% { transform: scaleX(1); opacity: 0.6; }
+        50% { transform: scaleX(0.7); opacity: 0.2; }
+      }
+
+      /* Animations Tuiles */
+      .metric-icon-group {
+        transform-box: fill-box;
+        transform-origin: center;
+      }
+
+      .bounce-anim {
+        animation: bounceIcon 3s ease-in-out infinite;
+      }
+      @keyframes bounceIcon {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-4px); }
+      }
+
+      .wobble-anim {
+        animation: wobbleIcon 4s ease-in-out infinite;
+      }
+      @keyframes wobbleIcon {
+        0%, 100% { transform: rotate(0deg); }
+        25% { transform: rotate(-8deg); }
+        75% { transform: rotate(8deg); }
+      }
+
+      .pulse-anim {
+        animation: pulseHeart 1.5s ease-in-out infinite;
+      }
+      @keyframes pulseHeart {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.15); }
+      }
+
+      /* Lignes de vitesse pour la chaussure */
+      .speed-line {
+        stroke-dasharray: 20;
+        animation: speedDash 1s linear infinite;
+        opacity: 0;
+      }
+      @keyframes speedDash {
+        0% { stroke-dashoffset: 20; opacity: 0; transform: translateX(10px); }
+        30% { opacity: 0.5; }
+        100% { stroke-dashoffset: -20; opacity: 0; transform: translateX(-20px); }
+      }
+
+      /* Styles et interactions du bouton */
+      .start-btn {
+        cursor: pointer;
+        transform-box: fill-box;
+        transform-origin: center;
+        transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .start-btn .btn-bg {
+        transition: fill 0.3s ease;
+      }
+      .start-btn:active {
+        transform: scale(0.97); /* Léger enfoncement au clic */
+      }
+      .start-btn:active .btn-bg {
+        fill: var(--primary); /* Devient Orange de Campus au clic */
+      }
+    </style>
+  </defs>
+
+  <!-- Arrière-plan -->
+  <rect width="100%" height="100%" fill="var(--bg)" />
+  <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+    <circle cx="2" cy="2" r="1.5" fill="var(--track-border)" opacity="0.6" />
+  </pattern>
+  <rect width="100%" height="100%" fill="url(#dots)" />
+  <path class="bg-wave" d="M -50 480 Q 250 320 550 550 T 900 400" fill="none" />
+  <path class="bg-wave-2" d="M -50 150 Q 200 -50 450 180 T 900 50" fill="none" />
+
+  <!-- CONTENEUR PRINCIPAL -->
+  <g class="card-wrapper">
+    <rect class="main-card" x="0" y="0" width="500" height="530" rx="36" fill="var(--card)" />
+
+    <!-- Tag En-tête -->
+    <rect x="60" y="40" width="180" height="28" rx="14" fill="#FFEDD5" />
+    <circle cx="76" cy="54" r="4" fill="none" stroke="var(--primary)" class="echo-dot" />
+    <circle cx="76" cy="54" r="4" fill="var(--primary)" />
+    <text x="88" y="58" font-size="11" font-weight="800" fill="var(--primary)" letter-spacing="0.5">DÉBUTANT - SÉANCE 1</text>
+
+    <!-- Titres -->
+    <text x="60" y="115" font-size="34" font-weight="900" fill="var(--text-dark)" letter-spacing="-1">Course à Pied</text>
+    <text x="60" y="140" font-size="15" font-weight="700" fill="#64748B">Programme pour commencer avec plaisir</text>
+
+    <!-- Visuel Central Animé (Chaussure) -->
+    <g class="central-graphic">
+      <rect x="120" y="180" width="260" height="110" rx="30" fill="var(--track-bg)" opacity="0.4" />
+      
+      <!-- Lignes de vitesse en arrière-plan -->
+      <path class="speed-line" d="M 160 210 L 130 210" stroke="#94A3B8" stroke-width="3" stroke-linecap="round" />
+      <path class="speed-line" d="M 150 250 L 120 250" stroke="#94A3B8" stroke-width="3" stroke-linecap="round" style="animation-duration: 1.2s; animation-delay: 0.3s;" />
+      
+      <!-- Ombre de la chaussure -->
+      <ellipse class="shoe-shadow" cx="245" cy="272" rx="65" ry="8" fill="#CBD5E1" opacity="0.6" />
+      
+      <!-- Chaussure Style Polygonale/Flat Design (Inspirée de l'image) -->
+      <g transform="translate(130, 150)">
+        <g class="shoe-anim-group">
+          
+          <!-- UPPER (Dark Blue) -->
+          <polygon points="35,60  55,10  75,10  75,35  120,40  145,15  200,55  235,65  240,90  160,80  110,70  50,55" fill="#1E293B" />
+          
+          <!-- MIDSOLE (White) -->
+          <polygon points="50,55  110,70  160,80  240,90  235,100  160,105  120,90  80,90  40,80  30,70" fill="#FFFFFF" />
+          
+          <!-- OUTSOLE (Pink) -->
+          <polygon points="30,70  40,80  80,90  120,90  160,105  235,100  230,110  155,120  115,105  75,100  40,90  20,75" fill="#F9A8D4" />
+          
+          <!-- LACES (Orange Zig-Zag épais) -->
+          <path d="M 130,42 L 155,25 L 160,45  L 185,28 L 190,48" fill="none" stroke="#FF5A00" stroke-width="12" stroke-linejoin="round" stroke-linecap="round" />
+        </g>
+      </g>
+    </g>
+
+    <!-- Tuiles de Statistiques -->
+    <!-- Metric 1 : TEMPS -->
+    <g class="metric" transform="translate(60, 320)">
+      <rect width="110" height="90" rx="20" fill="var(--bg)" class="metric-card" />
+      <circle cx="55" cy="30" r="14" fill="#DBEAFE" />
+      <g class="metric-icon-group wobble-anim">
+        <circle cx="55" cy="30" r="9" fill="none" stroke="var(--blue)" stroke-width="2" />
+        <path d="M 55 21 V 18 M 52 18 H 58" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" />
+        <path d="M 55 30 V 25 L 58 28" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </g>
+      <text x="55" y="66" text-anchor="middle" font-size="22" font-weight="900" fill="#0F172A">30</text>
+      <text x="55" y="80" text-anchor="middle" font-size="10" font-weight="800" fill="#64748B" letter-spacing="0.5">MINUTES</text>
+    </g>
+
+    <!-- Metric 2 : SÉANCES -->
+    <g class="metric" transform="translate(195, 320)">
+      <rect width="110" height="90" rx="20" fill="var(--bg)" class="metric-card" />
+      <circle cx="55" cy="30" r="14" fill="#FEF3C7" />
+      <g class="metric-icon-group bounce-anim">
+        <!-- Icône de calendrier/planning -->
+        <rect x="47" y="24" width="16" height="14" rx="2" fill="none" stroke="#F59E0B" stroke-width="2" />
+        <path d="M 51 22 v 4 M 59 22 v 4" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" />
+        <path d="M 47 28 H 63" stroke="#F59E0B" stroke-width="2" />
+      </g>
+      <text x="55" y="66" text-anchor="middle" font-size="22" font-weight="900" fill="#0F172A">2 à 3</text>
+      <text x="55" y="80" text-anchor="middle" font-size="10" font-weight="800" fill="#64748B" letter-spacing="0.5">SÉANCES / SEM.</text>
+    </g>
+
+    <!-- Metric 3 : EFFORT -->
+    <g class="metric" transform="translate(330, 320)">
+      <rect width="110" height="90" rx="20" fill="var(--bg)" class="metric-card" />
+      <circle cx="55" cy="30" r="14" fill="#DCFCE7" />
+      <g class="metric-icon-group pulse-anim">
+        <!-- Icône de Smile/Plaisir -->
+        <circle cx="55" cy="30" r="8" fill="none" stroke="#22C55E" stroke-width="2" />
+        <path d="M 51 28 v 1 M 59 28 v 1" stroke="#22C55E" stroke-width="2" stroke-linecap="round" />
+        <path d="M 51 32 Q 55 36 59 32" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round" />
+      </g>
+      <text x="55" y="66" text-anchor="middle" font-size="22" font-weight="900" fill="#0F172A">COOL</text>
+      <text x="55" y="80" text-anchor="middle" font-size="10" font-weight="800" fill="#64748B" letter-spacing="0.5">ALLURE</text>
+    </g>
+
+    <!-- Bouton Démarrer -->
+    <g transform="translate(60, 440)">
+      <g class="start-btn">
+        <rect width="380" height="56" rx="28" fill="var(--secondary)" class="btn-bg"/>
+        <text x="175" y="34" text-anchor="middle" font-size="14" font-weight="800" fill="#FFFFFF" letter-spacing="1">DÉMARRER LA SÉANCE</text>
+        <path class="play-icon" d="M 293 28 L 283 21 L 283 35 Z" fill="#FFFFFF"/>
+      </g>
+    </g>
+  </g>
+</svg>
