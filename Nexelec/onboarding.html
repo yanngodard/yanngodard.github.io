@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurateur Nexelec - Onboarding</title>
+    <link rel="stylesheet" href="onboarding.css">
+    <link rel="stylesheet" href="assets/fonts.css">
+    <script src="assets/lucide.js"></script>
+</head>
+
+<body>
+    <div class="onboarding-container">
+        <div class="progress-header">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+            <div class="steps-labels">
+                <span class="step-label active">Bâtiment</span>
+                <span class="step-label">IA Recommandations</span>
+                <span class="step-label">Équipements</span>
+            </div>
+        </div>
+
+        <!-- Step 1: Building Info -->
+        <div class="step-content active" id="step1">
+            <h2>Configurons votre espace</h2>
+            <p class="subtitle">Commençons par les bases pour adapter notre solution à vos besoins.</p>
+
+            <div class="grid-options">
+                <div class="option-card selected" onclick="selectBuildingType('bureau')">
+                    <i data-lucide="building-2"></i>
+                    <span>Bureaux</span>
+                </div>
+                <div class="option-card" onclick="selectBuildingType('industrie')">
+                    <i data-lucide="factory"></i>
+                    <span>Industrie</span>
+                </div>
+                <div class="option-card" onclick="selectBuildingType('ecole')">
+                    <i data-lucide="school"></i>
+                    <span>Établissement</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Nombre d'étages</label>
+                <input type="number" id="floors" value="1" min="1" max="100">
+            </div>
+
+            <div class="form-group">
+                <label>Nombre de pièces par étage (moyenne)</label>
+                <input type="number" id="roomsPerFloor" value="5" min="1" max="50">
+            </div>
+
+            <div class="actions">
+                <button class="btn btn-primary" onclick="goToStep(2)">Continuer</button>
+            </div>
+        </div>
+
+        <!-- Step 2: Recommendations -->
+        <div class="step-content" id="step2">
+            <h2>Nos recommandations IA</h2>
+            <p class="subtitle">Basé sur votre configuration, voici le profil d'optimisation suggéré.</p>
+
+            <div class="recommendation-list">
+                <div class="reco-item">
+                    <div class="reco-icon"><i data-lucide="thermometer"></i></div>
+                    <div>
+                        <div class="room-title">Chauffage Intelligent</div>
+                        <p style="font-size: 13px; color: var(--text-secondary)">Température cible : 20°C occupée / 17°C
+                            inoccupée. Gain estimé : 15%.</p>
+                    </div>
+                </div>
+                <div class="reco-item">
+                    <div class="reco-icon"><i data-lucide="wind"></i></div>
+                    <div>
+                        <div class="room-title">Qualité de l'air (QAI)</div>
+                        <p style="font-size: 13px; color: var(--text-secondary)">Ventilation asservie au CO2. Seuil
+                            d'alerte : 800ppm.</p>
+                    </div>
+                </div>
+                <div class="reco-item">
+                    <div class="reco-icon"><i data-lucide="zap"></i></div>
+                    <div>
+                        <div class="room-title">Économies d'énergie</div>
+                        <p style="font-size: 13px; color: var(--text-secondary)">Délestage automatique lors des pics de
+                            consommation tarifaire.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button class="btn btn-secondary" onclick="goToStep(1)">Retour</button>
+                <button class="btn btn-primary" onclick="goToStep(3)">Valider et équiper</button>
+            </div>
+        </div>
+
+        <!-- Step 3: Equipment Selection -->
+        <div class="step-content" id="step3">
+            <h2>Équipez vos pièces</h2>
+            <p class="subtitle">Sélectionnez les capteurs à installer pour chaque zone.</p>
+
+            <div class="room-setup" id="roomSetupList">
+                <!-- Dynamic room cards will be injected here -->
+            </div>
+
+            <div class="actions">
+                <button class="btn btn-secondary" onclick="goToStep(2)">Retour</button>
+                <button class="btn btn-primary" onclick="finishOnboarding()">Terminer la configuration</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="onboarding.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

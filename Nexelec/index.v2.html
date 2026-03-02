@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexelec | Supervision Site (V2)</title>
+    <link rel="stylesheet" href="style.v2.css">
+    <link rel="stylesheet" href="assets/fonts.css">
+    <script src="assets/lucide.js"></script>
+    <script src="assets/chart.js"></script>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i data-lucide="zap"></i>
+                </div>
+                <span>Navixis</span>
+                <button id="sidebarToggle" class="menu-btn" style="margin-left: auto;">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+
+            <nav class="main-nav">
+                <div class="nav-section-title">MENU PRINCIPAL</div>
+                <ul>
+                    <li>
+                        <a href="index.html">
+                            <i data-lucide="layout-dashboard"></i>
+                            <span>Tableau de bord</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i data-lucide="wind"></i>
+                            <span>Qualité de l'air</span>
+                            <span class="badge">8</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i data-lucide="activity"></i>
+                            <span>Énergie</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="index.v2.html">
+                            <i data-lucide="cpu"></i>
+                            <span>Capteurs</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="nav-section-title">FONCTIONNALITÉS</div>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <i data-lucide="bot"></i>
+                            <span>Eco-Pilot IA</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i data-lucide="file-text"></i>
+                            <span>Rapports ELAN</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i data-lucide="message-circle"></i>
+                            <span>Alertes</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="nav-section-title">GÉNÉRAL</div>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <i data-lucide="settings"></i>
+                            <span>Paramètres</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i data-lucide="help-circle"></i>
+                            <span>Département Aide</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i data-lucide="log-out"></i>
+                            <span>Déconnexion</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="upgrade-card">
+                <div class="upgrade-icon">✨</div>
+                <h4>Optimisation Pro</h4>
+                <p>Réduisez votre empreinte carbone et vos coûts énergétiques</p>
+                <button class="btn-upgrade">
+                    <i data-lucide="crown"></i>
+                    Activer Pro
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="top-header">
+                <div class="search-bar">
+                    <i data-lucide="search"></i>
+                    <input type="text" placeholder="Rechercher une salle...">
+                    <kbd>⌘ K</kbd>
+                </div>
+                <div class="header-actions">
+                    <button class="icon-btn" id="chatToggle" title="Ouvrir l'assistant IA">
+                        <i data-lucide="bot"></i>
+                    </button>
+                    <button class="icon-btn">
+                        <i data-lucide="help-circle"></i>
+                    </button>
+                    <button class="icon-btn">
+                        <i data-lucide="mail"></i>
+                    </button>
+                    <button class="icon-btn">
+                        <i data-lucide="bell"></i>
+                    </button>
+                    <div class="user-avatar">
+                        <img src="assets/avatar.png" alt="Gestionnaire Lycée">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+                <div>
+                    <h1>Supervision Global Site</h1>
+                    <p>Moniteur temps réel des capteurs de Sécurité, Confort et Santé.</p>
+                </div>
+                <div class="welcome-actions">
+                    <div class="system-status secure">
+                        <i data-lucide="shield-check"></i>
+                        <span>Système Sécurisé</span>
+                    </div>
+                    <button class="btn-export">
+                        <i data-lucide="download"></i>
+                        Rapport Incidents
+                    </button>
+                </div>
+            </section>
+
+            <!-- Stats Cards -->
+            <!-- Stats Cards (Supervision Focus) -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon blue">
+                            <i data-lucide="flame"></i>
+                        </div>
+                        <div class="stat-title">
+                            Sécurité Incendie
+                        </div>
+                    </div>
+                    <div class="stat-value">Actif</div>
+                    <div class="stat-change positive">
+                        <i data-lucide="check-circle"></i>
+                        48/48 Détecteurs en ligne
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon blue">
+                            <i data-lucide="wind"></i>
+                        </div>
+                        <div class="stat-title">
+                            Qualité de l'Air (QAI)
+                        </div>
+                    </div>
+                    <div class="stat-value">465 <small>ppm</small></div>
+                    <div class="stat-change positive">
+                        <i data-lucide="thumbs-up"></i>
+                        Excellente (Moyenne Site)
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon blue">
+                            <i data-lucide="thermometer"></i>
+                        </div>
+                        <div class="stat-title">
+                            Confort Thermique
+                        </div>
+                    </div>
+                    <div class="stat-value">19.5 <small>°C</small></div>
+                    <div class="stat-change neutral">
+                        <i data-lucide="alert-circle"></i>
+                        Zone Froide : Gymnase (16°C)
+                    </div>
+                </div>
+            </div>
+
+            <!-- Device Grid Section -->
+            <div class="device-section">
+                <div class="section-header">
+                    <div class="title-group">
+                        <h2>Infrastructure IoT</h2>
+                        <span class="badge">12 Capteurs</span>
+                    </div>
+                    <div class="filters">
+                        <button class="filter-chip active">Tous</button>
+                        <button class="filter-chip">Sécurité</button>
+                        <button class="filter-chip">Confort</button>
+                        <button class="filter-chip">Réseau</button>
+                    </div>
+                </div>
+
+                <!-- Group: Lycée RDC -->
+                <div class="zone-group">
+                    <h3 class="zone-title">Lycée — RDC (Rez-de-chaussée)</h3>
+                    <div class="device-grid">
+                        <!-- 1. Hall -->
+                        <div class="device-card">
+                            <div class="card-status active" title="En Ligne"></div>
+                            <img src="assets/nexelec_feel.png" alt="FEEL+" class="device-icon">
+                            <div class="device-info">
+                                <div class="device-location">Hall d'Entrée</div>
+                                <div class="device-name">Thermo/Hygro</div>
+                                <div class="device-data text-neutral">
+                                    18.5 <small>°C</small>
+                                </div>
+                            </div>
+                            <div class="device-meta">
+                                <span><i data-lucide="droplets"></i> 45%</span>
+                                <span><i data-lucide="clock"></i> 2m</span>
+                            </div>
+                        </div>
+
+                        <!-- 2. Cantine -->
+                        <div class="device-card warning">
+                            <div class="card-status warning" title="Alerte QAI"></div>
+                            <img src="assets/nexelec_aero.png" alt="AERO CO2" class="device-icon">
+                            <div class="device-info">
+                                <div class="device-location">Cantine</div>
+                                <div class="device-name">Qualité d'Air</div>
+                                <div class="device-data text-orange">
+                                    950 <small>ppm</small>
+                                </div>
+                            </div>
+                            <div class="device-meta">
+                                <span><i data-lucide="signal"></i> Bon</span>
+                                <span><i data-lucide="clock"></i> 1m</span>
+                            </div>
+                        </div>
+
+                        <!-- 3. Couloir Nord -->
+                        <div class="device-card">
+                            <div class="card-status active" title="En Ligne"></div>
+                            <img src="assets/nexelec_insafe.png" alt="INSAFE" class="device-icon">
+                            <div class="device-info">
+                                <div class="device-location">Couloir Nord</div>
+                                <div class="device-name">Détecteur Fumée</div>
+                                <div class="device-data text-green">
+                                    <i data-lucide="check-circle" style="width:14px"></i> RAS
+                                </div>
+                            </div>
+                            <div class="device-meta">
+                                <span><i data-lucide="battery"></i> 98%</span>
+                                <span><i data-lucide="clock"></i> 1h</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Group: Lycée 1er Etage -->
+                <div class="zone-group">
+                    <h3 class="zone-title">Lycée — 1er Étage</h3>
+                    <div class="device-grid">
+                        <!-- 4. Salle A101 -->
+                        <div class="device-card">
+                            <div class="card-status active" title="En Ligne"></div>
+                            <img src="assets/nexelec_aero.png"
+                                alt="AERO CO2" class="device-icon">
+                            <div class="device-info">
+                                <div class="device-location">Salle A101</div>
+                                <div class="device-name">Qualité d'Air</div>
+                                <div class="device-data text-blue">
+                                    480 <small>ppm</small>
+                                </div>
+                            </div>
+                            <div class="device-meta">
+                                <span><i data-lucide="signal"></i> Excel.</span>
+                                <span><i data-lucide="clock"></i> 5m</span>
+                            </div>
+                        </div>
+
+                        <!-- 5. Salle A102 -->
+                        <div class="device-card">
+                            <div class="card-status active" title="En Ligne"></div>
+                            <img src="assets/nexelec_aero.png"
+                                alt="AERO CO2" class="device-icon">
+                            <div class="device-info">
+                                <div class="device-location">Salle A102</div>
+                                <div class="device-name">Qualité d'Air</div>
+                                <div class="device-data text-blue">
+                                    510 <small>ppm</small>
+                                </div>
+                            </div>
+                            <div class="device-meta">
+                                <span><i data-lucide="signal"></i> Excel.</span>
+                                <span><i data-lucide="clock"></i> 5m</span>
+                            </div>
+                        </div>
+
+                        <!-- 6. Salle Profs -->
+                        <div class="device-card">
+                            <div class="card-status active" title="En Ligne"></div>
+                            <img src="assets/nexelec_feel.png"
+                                alt="FEEL+" class="device-icon">
+                            <div class="device-info">
+                                <div class="device-location">Salle Professeurs</div>
+                                <div class="device-name">Confort</div>
+                                <div class="device-data text-neutral">
+                                    21.0 <small>°C</small>
+                                </div>
+                            </div>
+                            <div class="device-meta">
+                                <span><i data-lucide="droplets"></i> 52%</span>
+                                <span><i data-lucide="users"></i> Occupé</span>
+                            </div>
+                        </div>
+
+                        <!-- 7. Couloir Sud -->
+                        <div class="device-card">
+                            <div class="card-status active" title="En Ligne"></div>
+                            <img src="assets/nexelec_insafe.png"
+                                alt="INSAFE" class="device-icon">
+                            <div class="device-info">
+                                <div class="device-location">Couloir Sud</div>
+                                <div class="device-name">Détecteur Fumée</div>
+                                <div class="device-data text-green">
+                                    <i data-lucide="check-circle" style="width:14px"></i> RAS
+                                </div>
+                            </div>
+                            <div class="device-meta">
+                                <span><i data-lucide="battery"></i> 97%</span>
+                                <span><i data-lucide="clock"></i> 2h</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Group: Gymnase -->
+                <div class="zone-group">
+                    <h3 class="zone-title">Gymnase & Extérieur</h3>
+                    <div class="device-grid">
+                        <!-- 8. Terrain -->
+                        <div class="device-card">
+                            <div class="card-status active" title="En Ligne"></div>
+                            <img src="assets/nexelec_feel.png"
+                                alt="FEEL+" class="device-icon">
+                            <div class="device-info">
+                                <div class="device-location">Terrain Principal</div>
+                                <div class="device-name">Confort</div>
+                                <div class="device-data text-blue">
+                                    16.5 <small>°C</small>
+                                </div>
+                            </div>
+                            <div class="device-meta">
+                                <span><i data-lucide="droplets"></i> 60%</span>
+                                <span><i data-lucide="clock"></i> 10m</span>
+                            </div>
+                        </div>
+
+                        <!-- 9. Vestiaires -->
+                        <div class="device-card">
+                            <div class="card-status warning" title="Humidité Élevée"></div>
+                            <img src="assets/nexelec_aero.png"
+                                alt="AERO CO2" class="device-icon">
+                            <div class="device-info">
+                                <div class="device-location">Vestiaires</div>
+                                <div class="device-name">Qualité d'Air</div>
+                                <div class="device-data text-orange">
+                                    1400 <small>ppm</small>
+                                </div>
+                            </div>
+                            <div class="device-meta">
+                                <span><i data-lucide="droplets"></i> High</span>
+                                <span><i data-lucide="clock"></i> 2m</span>
+                            </div>
+                        </div>
+
+                        <!-- 10. Local Technique -->
+                        <div class="device-card">
+                            <div class="card-status active" title="En Ligne"></div>
+                            <img src="assets/nexelec_insafe.png"
+                                alt="INSAFE" class="device-icon">
+                            <div class="device-info">
+                                <div class="device-location">Local Technique</div>
+                                <div class="device-name">Détecteur Fumée</div>
+                                <div class="device-data text-green">
+                                    <i data-lucide="check-circle" style="width:14px"></i> RAS
+                                </div>
+                            </div>
+                            <div class="device-meta">
+                                <span><i data-lucide="battery"></i> 100%</span>
+                                <span><i data-lucide="clock"></i> 24h</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Group: Administration -->
+                <div class="zone-group">
+                    <h3 class="zone-title">Administration</h3>
+                    <div class="device-grid">
+                        <!-- 11. Bureau Directeur -->
+                        <div class="device-card">
+                            <div class="card-status active" title="En Ligne"></div>
+                            <img src="assets/nexelec_aero.png"
+                                alt="AERO CO2" class="device-icon">
+                            <div class="device-info">
+                                <div class="device-location">Bureau Directeur</div>
+                                <div class="device-name">Qualité d'Air</div>
+                                <div class="device-data text-blue">
+                                    410 <small>ppm</small>
+                                </div>
+                            </div>
+                            <div class="device-meta">
+                                <span><i data-lucide="signal"></i> Excel.</span>
+                                <span><i data-lucide="clock"></i> 8m</span>
+                            </div>
+                        </div>
+
+                        <!-- 12. Secrétariat -->
+                        <div class="device-card">
+                            <div class="card-status active" title="En Ligne"></div>
+                            <img src="assets/nexelec_feel.png"
+                                alt="FEEL+" class="device-icon">
+                            <div class="device-info">
+                                <div class="device-location">Secrétariat</div>
+                                <div class="device-name">Thermo/Hygro</div>
+                                <div class="device-data text-neutral">
+                                    21.5 <small>°C</small>
+                                </div>
+                            </div>
+                            <div class="device-meta">
+                                <span><i data-lucide="droplets"></i> 48%</span>
+                                <span><i data-lucide="clock"></i> 4m</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Chat Sidebar -->
+        <aside class="chat-sidebar hidden" id="aiChatSidebar">
+            <div class="chat-header">
+                <div class="chat-title">
+                    <i data-lucide="bot"></i>
+                    Eco-Pilot IA
+                </div>
+                <button class="close-chat" id="closeChat">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <!-- Messages will be injected here -->
+                <div class="message bot">
+                    <div class="message-content">
+                        Bonjour ! Je suis votre assistant Eco-Pilot. Je surveille en temps réel la consommation du
+                        bâtiment.
+                    </div>
+                </div>
+            </div>
+            <div class="chat-suggestions" id="chatSuggestions">
+                <!-- Suggestion chips will be injected here -->
+            </div>
+            <div class="chat-input-area">
+                <input type="text" placeholder="Posez une question..." disabled>
+                <button class="send-btn" disabled>
+                    <i data-lucide="send"></i>
+                </button>
+            </div>
+        </aside>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexelec | Tableau de Bord Eco-Pilot</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/fonts.css">
+    <script src="assets/lucide.js"></script>
+    <script src="assets/chart.js"></script>
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i data-lucide="zap"></i>
+                </div>
+                <span>Navixis</span>
+                <button id="sidebarToggle" class="menu-btn" style="margin-left: auto;">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+
+            <nav class="main-nav">
+                <div class="nav-section-title">MENU PRINCIPAL</div>
+                <ul>
+                    <li class="active">
+                        <a href="index.html">
+                            <i data-lucide="layout-dashboard"></i>
+                            <span>Tableau de bord</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i data-lucide="wind"></i>
+                            <span>Qualité de l'air</span>
+                            <span class="badge">8</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i data-lucide="activity"></i>
+                            <span>Énergie</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.v2.html">
+                            <i data-lucide="cpu"></i>
+                            <span>Capteurs</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="nav-section-title">FONCTIONNALITÉS</div>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <i data-lucide="bot"></i>
+                            <span>Eco-Pilot IA</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i data-lucide="file-text"></i>
+                            <span>Rapports ELAN</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i data-lucide="message-circle"></i>
+                            <span>Alertes</span>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="nav-section-title">GÉNÉRAL</div>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <i data-lucide="settings"></i>
+                            <span>Paramètres</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i data-lucide="help-circle"></i>
+                            <span>Département Aide</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i data-lucide="log-out"></i>
+                            <span>Déconnexion</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="upgrade-card">
+                <div class="upgrade-icon">✨</div>
+                <h4>Optimisation Pro</h4>
+                <p>Réduisez votre empreinte carbone et vos coûts énergétiques</p>
+                <button class="btn-upgrade">
+                    <i data-lucide="crown"></i>
+                    Activer Pro
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="top-header">
+                <div class="search-bar">
+                    <i data-lucide="search"></i>
+                    <input type="text" placeholder="Rechercher une salle...">
+                    <kbd>⌘ K</kbd>
+                </div>
+                <div class="header-actions">
+                    <button class="icon-btn" id="chatToggle" title="Ouvrir l'assistant IA">
+                        <i data-lucide="bot"></i>
+                    </button>
+                    <button class="icon-btn">
+                        <i data-lucide="help-circle"></i>
+                    </button>
+                    <button class="icon-btn">
+                        <i data-lucide="mail"></i>
+                    </button>
+                    <button class="icon-btn">
+                        <i data-lucide="bell"></i>
+                    </button>
+                    <div class="user-avatar">
+                        <img src="assets/avatar.png" alt="Gestionnaire Lycée">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+                <div>
+                    <h1>Lycée Grand-Parc — Bordeaux</h1>
+                    <p>Pilotage intelligent des 24 salles de classe, de la cantine et du gymnase.</p>
+                </div>
+                <div class="welcome-actions">
+                    <div class="date-display">
+                        <i data-lucide="calendar"></i>
+                        <span>Lun, 26 Janvier 2026</span>
+                    </div>
+                    <button class="btn-export">
+                        <i data-lucide="download"></i>
+                        Rapport Mensuel
+                    </button>
+                </div>
+            </section>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon blue">
+                            <i data-lucide="activity"></i>
+                        </div>
+                        <div class="stat-title">
+                            Indice de Santé
+                            <button class="menu-btn">
+                                <i data-lucide="more-horizontal"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="stat-value">92/100</div>
+                    <div class="stat-change positive">
+                        <i data-lucide="trending-up"></i>
+                        Confort optimal (Salles A1-A12)
+                    </div>
+                    <div class="stat-actions">
+                        <button class="btn-primary">
+                            <i data-lucide="zap"></i>
+                            Optimiser
+                        </button>
+                        <button class="btn-secondary">Par classe</button>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon blue">
+                            <i data-lucide="wind"></i>
+                        </div>
+                        <div class="stat-title">
+                            Qualité de l'Air (CO2)
+                            <button class="menu-btn">
+                                <i data-lucide="more-horizontal"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="stat-value">465 <small>ppm</small></div>
+                    <div class="stat-change positive">
+                        <i data-lucide="trending-down"></i>
+                        Stable (Seuil alerte : 1000)
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-icon purple">
+                            <i data-lucide="piggy-bank"></i>
+                        </div>
+                        <div class="stat-title">
+                            Économies Janvier
+                            <button class="menu-btn">
+                                <i data-lucide="more-horizontal"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="stat-value">3 420 €</div>
+                    <div class="stat-change positive">
+                        <i data-lucide="trending-up"></i>
+                        +18% (Gain chauffage)
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="charts-section">
+                <!-- Main Chart -->
+                <div class="chart-card large">
+                    <div class="chart-header">
+                        <div class="chart-title">
+                            <i data-lucide="bar-chart-3"></i>
+                            <span>Historique des Gains</span>
+                        </div>
+                        <div class="chart-controls">
+                            <div class="chart-tabs">
+                                <button class="tab" data-view="weekly">Hebdo</button>
+                                <button class="tab active" data-view="monthly">Mensuel</button>
+                            </div>
+                            <select class="year-select">
+                                <option>Année Scolaire 25-26</option>
+                                <option>Année Scolaire 24-25</option>
+                            </select>
+                            <button class="menu-btn">
+                                <i data-lucide="more-horizontal"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="chart-value">
+                        <div class="value-label">Économies Annuelles Estimées</div>
+                        <div class="value-amount">28 642,50 €</div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="monthlyChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Building Zones -->
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <div class="chart-title">
+                            <i data-lucide="building-2"></i>
+                            <span>Répartition par Pôle</span>
+                        </div>
+                        <button class="add-btn">
+                            <i data-lucide="plus"></i>
+                            Ajouter
+                        </button>
+                    </div>
+                    <div class="zones-list">
+                        <div class="zone-item">
+                            <div class="zone-flag">
+                                <i data-lucide="graduation-cap"></i>
+                            </div>
+
+                            <div class="zone-info">
+                                <div class="zone-name">Salles de Cours</div>
+                                <div class="zone-value">1 850 € <small>/ mois</small></div>
+                                <div class="zone-status active">Optimisé</div>
+                            </div>
+                            <button class="menu-btn">
+                                <i data-lucide="more-vertical"></i>
+                            </button>
+                        </div>
+
+                        <div class="zone-item">
+                            <div class="zone-flag">
+                                <i data-lucide="utensils"></i>
+                            </div>
+
+                            <div class="zone-info">
+                                <div class="zone-name">Cantine & Self</div>
+                                <div class="zone-value">620 € <small>/ mois</small></div>
+                                <div class="zone-status active">Optimisé</div>
+                            </div>
+                            <button class="menu-btn">
+                                <i data-lucide="more-vertical"></i>
+                            </button>
+                        </div>
+
+                        <div class="zone-item">
+                            <div class="zone-flag">
+                                <i data-lucide="trophy"></i>
+                            </div>
+
+                            <div class="zone-info">
+                                <div class="zone-name">Gymnase <span class="sparkle-icon">✨</span></div>
+                                <div class="zone-value">540 € <small>/ mois</small></div>
+                                <div class="zone-status inactive">Action Requise</div>
+                            </div>
+                            <button class="menu-btn">
+                                <i data-lucide="more-vertical"></i>
+                            </button>
+                        </div>
+
+                        <div class="zone-item">
+                            <div class="zone-flag">
+                                <i data-lucide="briefcase"></i>
+                            </div>
+
+                            <div class="zone-info">
+                                <div class="zone-name">Administration</div>
+                                <div class="zone-value">410 € <small>/ mois</small></div>
+                                <div class="zone-status active">Optimisé</div>
+                            </div>
+                            <button class="menu-btn">
+                                <i data-lucide="more-vertical"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Section -->
+            <div class="bottom-section">
+                <!-- Suivi Loi ELAN -->
+                <div class="insights-card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <i data-lucide="shield-check"></i>
+                            <span>Suivi Loi ELAN / Décret Tertiaire</span>
+                        </div>
+                        <button class="menu-btn">
+                            <i data-lucide="more-horizontal"></i>
+                        </button>
+                    </div>
+                    <div class="insights-list">
+                        <div class="insight-item">
+                            <div class="insight-icon">
+                                <i data-lucide="trending-down"></i>
+                            </div>
+                            <div class="insight-content">
+                                <div class="insight-title">Objectif Réduction 2030 (-40%)</div>
+                                <div class="insight-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 58%"></div>
+                                    </div>
+                                    <span>58%</span>
+                                </div>
+                                <div class="insight-value">Réduction actuelle : -23.2% vs 2010</div>
+                            </div>
+                        </div>
+
+                        <div class="insight-item">
+                            <div class="insight-icon orange">
+                                <i data-lucide="leaf"></i>
+                            </div>
+                            <div class="insight-content">
+                                <div class="insight-title">Performance kWh/m²/an</div>
+                                <div class="insight-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill orange" style="width: 72%"></div>
+                                    </div>
+                                    <span>72%</span>
+                                </div>
+                                <div class="insight-value">115 kWh/m² (Cible : 85 kWh/m²)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn-secondary" style="width: 100%; margin-top: 24px;">Exporter l'Audit
+                        Certifié</button>
+                </div>
+
+                <!-- Recent Actions -->
+                <div class="transactions-card">
+                    <div class="card-header">
+                        <div class="card-title">
+                            <i data-lucide="activity"></i>
+                            <span>Actions Récentes du Bâtiment</span>
+                        </div>
+                        <button class="filter-btn">
+                            <i data-lucide="sliders-horizontal"></i>
+                            Filtrer
+                        </button>
+                    </div>
+                    <table class="transactions-table">
+                        <thead>
+                            <tr>
+                                <th>Événement</th>
+                                <th>Heure / Date</th>
+                                <th>Impact Estimé</th>
+                                <th>Statut IA</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="activity-cell">
+                                        <div class="activity-icon blue">
+                                            <i data-lucide="wind"></i>
+                                        </div>
+                                        <span>Ventilation anticipée — Salle A104</span>
+                                    </div>
+                                </td>
+                                <td>Aujourd'hui, 14:15</td>
+                                <td>+ Gain Confort</td>
+                                <td><span class="status-badge success">Effectué</span></td>
+                                <td>
+                                    <button class="menu-btn">
+                                        <i data-lucide="more-horizontal"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="activity-cell">
+                                        <div class="activity-icon red">
+                                            <i data-lucide="thermometer"></i>
+                                        </div>
+                                        <span>Réduction de nuit (Mode Vacances)</span>
+                                    </div>
+                                </td>
+                                <td>Hier, 22:00</td>
+                                <td>+ 84,20 €</td>
+                                <td><span class="status-badge success">Effectué</span></td>
+                                <td>
+                                    <button class="menu-btn">
+                                        <i data-lucide="more-horizontal"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="activity-cell">
+                                        <div class="activity-icon yellow">
+                                            <i data-lucide="alert-triangle"></i>
+                                        </div>
+                                        <span>Détection fenêtre ouverte — Salle C02</span>
+                                    </div>
+                                </td>
+                                <td>Hier, 10:45</td>
+                                <td>+ 12,50 €</td>
+                                <td><span class="status-badge success">Alerte IA</span></td>
+                                <td>
+                                    <button class="menu-btn">
+                                        <i data-lucide="more-horizontal"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Chat Sidebar -->
+        <aside class="chat-sidebar hidden" id="aiChatSidebar">
+            <div class="chat-header">
+                <div class="chat-title">
+                    <i data-lucide="bot"></i>
+                    Eco-Pilot IA
+                </div>
+                <button class="close-chat" id="closeChat">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <!-- Messages will be injected here -->
+            </div>
+            <div class="chat-suggestions" id="chatSuggestions">
+                <!-- Suggestion chips will be injected here -->
+            </div>
+            <div class="chat-input-area">
+                <input type="text" placeholder="Posez une question..." disabled>
+                <button class="send-btn" disabled>
+                    <i data-lucide="send"></i>
+                </button>
+            </div>
+        </aside>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
