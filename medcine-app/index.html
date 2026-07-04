@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+  <meta name="description" content="Prépare le concours PASS de Rennes avec des QCM interactifs, explications détaillées et suivi de progression."/>
+  <meta name="theme-color" content="#0a0c18"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="apple-mobile-web-app-title" content="MedPrep"/>
+  <link rel="manifest" href="manifest.json"/>
+  <title>MedPrep Rennes — Prépare ton PASS</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div id="app">
+    <div class="screen" style="align-items:center;justify-content:center;gap:12px;">
+      <div style="font-size:2.5rem">🩺</div>
+      <div style="color:#b8c4e0;font-size:0.9rem">Chargement…</div>
+    </div>
+  </div>
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js');
+    }
+  </script>
+</body>
+</html>
